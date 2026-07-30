@@ -241,7 +241,11 @@
       </div>
 
       <div class="quote-card">
-        <form id="quoteForm">
+        <form id="quoteForm" name="quote-wizard" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="quote-wizard">
+          <p style="position:absolute; left:-9999px;" aria-hidden="true">
+            <label>Leave this field blank: <input name="bot-field"></label>
+          </p>
           <div class="wizard-step active" data-step="1">
             <h3>First things first</h3>
             <p class="wizard-sub">Have you used Pet Waste Wagon before?</p>
@@ -328,7 +332,8 @@
             <button type="button" class="cta-btn" id="wizardNext">Continue</button>
             <button type="submit" class="cta-btn wizard-submit" id="wizardSubmit">Get My Quote</button>
           </div>
-          <p class="form-note">This form opens your email client with the details prefilled.</p>
+          <p class="form-note" id="submitNote">We'll text you back with a price, usually within a couple hours.</p>
+          <p class="form-note" id="submitError" style="display:none; color:#b3261e;">Something went wrong sending that — please call or text us directly at <a href="tel:+17045599522">(704) 559-9522</a>.</p>
         </form>
 
         <div class="done-panel" id="donePanel">
@@ -336,8 +341,8 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
           </div>
           <h3>You're on the list!</h3>
-          <p>Your email client should have opened with everything filled in — just hit send.</p>
-          <p>If it didn't open, call or text us directly at <a href="tel:+17045599522">(704) 559-9522</a>.</p>
+          <p>We've got your details and will text you a price, usually within a couple hours.</p>
+          <p>Questions in the meantime? Call or text us at <a href="tel:+17045599522">(704) 559-9522</a>.</p>
         </div>
       </div>
     </div>
@@ -459,32 +464,37 @@
       });
     });
 
+    const submitError = document.getElementById('submitError');
+    const submitNote = document.getElementById('submitNote');
+
+    // Submits to Netlify Forms via AJAX (per Netlify's documented pattern for
+    // JS-driven forms: POST to "/" as x-www-form-urlencoded, including the
+    // form-name field). Netlify's build-time bot detects the form from the
+    // data-netlify="true" attribute + form-name hidden input in the markup
+    // above — no backend, API key, or third-party account needed.
     form.addEventListener('submit', function(e){
       e.preventDefault();
-      const returning = document.getElementById('returning').value;
-      const name = document.getElementById('name').value;
-      const phone = document.getElementById('phone').value;
-      const address = document.getElementById('address').value;
-      const dogs = document.getElementById('dogs').value;
-      const freq = document.getElementById('freq').value;
-      const notes = document.getElementById('notes').value;
-      const subject = encodeURIComponent('Quote request: ' + name);
-      const body = encodeURIComponent(
-        'New/Returning: ' + returning + '\n' +
-        'Name: ' + name + '\n' +
-        'Phone: ' + phone + '\n' +
-        'Address / Neighborhood: ' + address + '\n' +
-        'Dogs: ' + dogs + '\n' +
-        'Frequency: ' + freq + '\n' +
-        'Notes: ' + notes
-      );
-      window.location.href = 'mailto:petwastewagon@gmail.com?subject=' + subject + '&body=' + body;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      submitError.style.display = 'none';
 
-      // Always show a visible Done screen, regardless of whether the mail
-      // client actually opened (mailto is fire-and-forget from JS's view).
-      form.style.display = 'none';
-      donePanel.classList.add('active');
-      updateTracker(totalNodes);
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      })
+      .then(function(res){
+        if(!res.ok) throw new Error('Bad response');
+        form.style.display = 'none';
+        donePanel.classList.add('active');
+        updateTracker(totalNodes);
+      })
+      .catch(function(){
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Get My Quote';
+        submitNote.style.display = 'none';
+        submitError.style.display = 'block';
+      });
     });
 
     show(1);
