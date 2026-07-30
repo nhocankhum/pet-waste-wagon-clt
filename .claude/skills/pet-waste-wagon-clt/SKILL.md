@@ -5,7 +5,7 @@ description: Full operating context for Pet Waste Wagon CLT — a residential do
 
 # Pet Waste Wagon CLT
 
-Residential dog-waste removal service serving the greater Charlotte, NC metro. Launch-stage business — website drafted, pricing set, not yet live/operating.
+Residential dog-waste removal service serving the greater Charlotte, NC metro. Site is live at petwastewagon.com with live Stripe payments — see the Payments section below for current infrastructure state.
 
 ## Brand basics
 
@@ -77,16 +77,11 @@ Pet Waste Wagon CLT is a **subscription business**. Weekly and bi-weekly plans a
 
 Increment is +$5/visit per dog above 2, in line with how ScooperDude/Scoop Soldiers tier their pricing. These land squarely inside the Charlotte market range (see competitor table below).
 
-## Payments: Stripe (setup in progress)
+## Payments: Stripe (LIVE as of 2026-07-29)
 
-Subscriptions are meant to run through **Stripe Payment Links** (hosted checkout, no backend server needed — fits the static-HTML site). Status as of 2026-07-16: **owner does not yet have a Stripe account.** Until it's created and products/prices are set up, the site's Subscribe/Book buttons point to placeholder URLs.
+Subscriptions run through **Stripe Payment Links** (hosted checkout, no backend server needed — fits the static-HTML site). The Stripe account ("Pet Waste Wagon", acct_1TxaUtKy5iDHKuQr) is activated for live payments and all 9 payment links (weekly/bi-weekly/one-time × 1-2/3/4 dogs) exist in live mode — see `stripe-payment-links-LIVE.md` in the repo root for the actual URLs (a sandbox/test set is in `stripe-payment-links-TEST.md`). **The `STRIPE_LINKS` placeholders mentioned lower in this file may be stale — check the live file above before assuming they're still `PASTE_STRIPE_LINK_HERE`.**
 
-Setup path (owner must do the account creation — Claude cannot create financial accounts on someone's behalf):
-1. Owner signs up at stripe.com.
-2. Create one recurring Product/Price per plan × dog-tier: Weekly (1-2, 3, 4 dogs), Bi-weekly (1-2, 3, 4 dogs) — 6 recurring prices total.
-3. Create one-time Prices for Deep Clean (1-2, 3, 4 dogs) — 3 one-time prices.
-4. Generate a Payment Link for each of the 9 prices.
-5. Drop the resulting URLs into the `STRIPE_LINKS` object in `petwastewagonclt-website.html`'s `<script>` block (see Website section below) — each plan key (`deep-clean`/`weekly`/`biweekly`) has a `'1-2'`/`'3'`/`'4'` sub-key currently set to the literal string `'PASTE_STRIPE_LINK_HERE'`.
+The site is also live and hosted: petwastewagon.com via Netlify, continuously deployed from the private GitHub repo `nhocankhum/pet-waste-wagon-clt`. A hired VA (Nguyen Phan) has GitHub write access and a restricted "Support Specialist" Stripe role to help manage ongoing content and payment links — do not route account-admin, payout, or bank-detail changes through him.
 
 ## Competitive landscape (Charlotte, NC — researched 2026-07-16)
 
