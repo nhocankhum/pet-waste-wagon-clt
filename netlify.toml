@@ -1,0 +1,5 @@
+[[redirects]]
+from = "/"
+to = "/petwastewagonclt-website.html"
+status = 200
+force = false
