@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pet Waste Wagon | Charlotte Yard Waste Removal</title>
+<meta name="description" content="Weekly and bi-weekly dog waste removal for Charlotte, NC yards. Transparent pricing, no contracts, gate photo after every visit. Call (704) 559-9522.">
+<meta name="theme-color" content="#00539B">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 56'%3E%3Cpath d='M13.5 28C7 23 8.5 14 15.5 12.5' fill='none' stroke='%230099D8' stroke-width='3.2' stroke-linecap='round'/%3E%3Ccircle cx='36' cy='18' r='9.6' fill='%23F0A03C'/%3E%3Ccircle cx='32.3' cy='15.8' r='1.5' fill='%2300539B'/%3E%3Ccircle cx='39.7' cy='15.8' r='1.5' fill='%2300539B'/%3E%3Ccircle cx='36' cy='20.4' r='1.9' fill='%2300539B'/%3E%3Cpath d='M15 28h42a4 4 0 0 1 4 4v6a5 5 0 0 1-5 5H16a5 5 0 0 1-5-5v-6a4 4 0 0 1 4-4z' fill='%230099D8'/%3E%3Ccircle cx='25' cy='47.5' r='5.2' fill='%2300539B'/%3E%3Ccircle cx='51' cy='47.5' r='5.2' fill='%2300539B'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pet Waste Wagon | Charlotte Dog Waste Removal">
+<meta property="og:description" content="Weekly and bi-weekly pet waste removal for Charlotte yards. No contracts, prices posted up front, and a photo of your closed gate every visit.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* #0099D8 is the exact blue in the official Blue Cross Blue Shield logo
+       (read from azblue.com's bcbs-logo-header.svg). It is GRAPHICS-ONLY:
+       at 3.21:1 on white it is too light for body text — note BCBS themselves
+       set their wordmark in near-black #2D2926, not in this blue. */
+    --blue: #0099D8;         /* BCBS logo blue — logo mark, icons, graphic accents */
+    --navy: #00539B;         /* text-safe blue: headings, footer, promo bar, dark sections */
+    --navy-deep: #003D70;    /* text on amber buttons — the brighter navy fails 4.5:1 there */
+    --blue-bright: #4FBCEA;  /* highlights, footer logo variant */
+    --tint: #EFF6FD;         /* alternating section backgrounds */
+    /* kept as an RGB triplet so the hero fade can go to a *transparent blue*
+       rather than CSS `transparent` (= transparent BLACK, which greys the blend) */
+    --hero-band-rgb: 255, 255, 255;
+    --hero-band: rgb(var(--hero-band-rgb));
+    --line: #D6E4F2;         /* borders / hairlines */
+    --white: #FFFFFF;
+    --amber: #F0A03C;        /* CTA + accent (warm contrast to blue) */
+    --amber-hover: #E08F28;  /* CTA hover — keeps 4.5:1 against navy text */
+    --amber-dark: #96590A;   /* eyebrow/tag text on white — darkened for legibility */
+    --slate: #5A6B7C;        /* muted body text */
+    --royal: #3558CB;        /* true royal blue — alternating section backgrounds (was pale --tint) */
+    --ink: #16202B;          /* primary body text */
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Work Sans', sans-serif;
+    background:var(--white);
+    color:var(--ink);
+    line-height:1.55;
+  }
+  h1,h2,h3{font-family:'Fraunces', serif; font-weight:600; color:var(--navy);}
+  a{color:inherit;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+  /* Work Sans, not IBM Plex Mono — owner flagged mono as "coding looking" a
+     second time (first on the hero kicker/chips, now these section labels).
+     Removing it site-wide rather than case-by-case; see notes below. */
+  .eyebrow{
+    font-family:'Work Sans', sans-serif;
+    font-weight:700;
+    font-size:0.72rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--amber-dark);
+    display:block;
+    margin-bottom:10px;
+  }
+
+  /* NAV */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--white); border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px; gap:22px;
+  }
+  .logo{font-family:'Fraunces', serif; font-weight:700; font-size:1.2rem; color:var(--navy); display:flex; align-items:center; gap:10px; white-space:nowrap; text-decoration:none;}
+  @media(max-width:400px){ .logo{font-size:1rem;} }
+  .logo-img{height:56px; width:auto; display:block;}
+  @media(max-width:400px){ .logo-img{height:42px;} }
+  .logo-mark{width:40px; height:auto; flex-shrink:0; display:block;}
+  @media(max-width:400px){ .logo-mark{width:33px;} }
+  .logo-mark .wagon{fill:var(--blue);}
+  .logo-mark .slat{fill:var(--blue-bright);}
+  .logo-mark .wheel{fill:var(--navy);}
+  .logo-mark .hub{fill:#fff;}
+  .logo-mark .handle{stroke:var(--blue);}
+  .logo-mark .head{fill:var(--amber);}
+  .logo-mark .ear{fill:var(--amber-dark);}
+  .logo-mark .muzzle{fill:#FFE7C6;}
+  .logo-mark .face{fill:var(--navy);}
+  /* light variant for dark backgrounds */
+  footer .logo-mark .wagon{fill:var(--blue-bright);}
+  footer .logo-mark .slat{fill:#7FB6E4;}
+  footer .logo-mark .wheel{fill:#C3D2DF;}
+  footer .logo-mark .hub{fill:var(--navy);}
+  footer .logo-mark .handle{stroke:var(--blue-bright);}
+  footer .logo-mark .face{fill:var(--navy);}
+
+  /* SVG ICONS (replaces emoji) */
+  .ico-svg{width:30px; height:30px; display:block; margin-bottom:14px; color:var(--blue);}
+  .inline-ico{width:16px; height:16px; flex-shrink:0; vertical-align:-3px;}
+  nav ul{list-style:none; display:flex; gap:20px;}
+  /* the 7 nav links + logo + phone + CTA fill the bar exactly at ~1280px and collide;
+     drop the nav phone at mid widths — it's still prominent in the hero and mobile menu */
+  @media(max-width:1180px){ .nav-phone{display:none;} }
+  nav ul a{
+    font-size:0.92rem; font-weight:500; text-decoration:none; color:var(--ink);
+    border-bottom:2px solid transparent; padding-bottom:2px;
+  }
+  nav ul a:hover{border-color:var(--amber);}
+  .cta-btn{
+    background:var(--amber); color:var(--navy-deep); padding:10px 20px; border-radius:3px;
+    text-decoration:none; font-weight:600; font-size:0.9rem;
+    border:1px solid var(--amber);
+    transition:background .15s, transform .15s;
+    display:inline-block;
+  }
+  .cta-btn:hover{background:var(--amber-hover); transform:translateY(-1px);}
+  .cta-btn.ghost{background:transparent; color:var(--navy); border-color:var(--navy);}
+  .cta-btn.ghost:hover{background:var(--navy); color:#fff;}
+  @media(max-width:760px){ nav ul{display:none;} }
+
+  /* HERO — full-bleed band, photo left, slogan right, wave divider */
+  .hero{
+    position:relative; overflow:hidden;
+    background:var(--hero-band);
+    padding-bottom:64px;
+  }
+  .hero-inner{
+    max-width:1500px; margin:0 auto;
+    display:grid; grid-template-columns:1.02fr 1fr;
+    align-items:end; min-height:540px;
+  }
+  .hero-photo{height:100%; min-height:540px; position:relative;}
+  .hero-photo img{width:100%; height:100%; object-fit:cover; object-position:50% 42%; display:block;}
+  /* Soften the photo's right edge into the band so it reads as one scene.
+     Fades to rgba(<band>,0), NOT `transparent` — CSS `transparent` is rgba(0,0,0,0),
+     i.e. transparent BLACK, so interpolating to it drags a dirty grey band through
+     the blend and leaves a visible seam at the photo edge. */
+  .hero-photo::after{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background:linear-gradient(90deg,
+      rgba(var(--hero-band-rgb), 0) 55%,
+      rgba(var(--hero-band-rgb), 1) 99%);
+  }
+  .hero-content{padding:0 56px 96px 40px;}
+  .hero h1{font-size:clamp(2.1rem, 4vw, 3.5rem); line-height:1.06; margin-bottom:16px;}
+  .hero h1 em{font-style:italic; color:var(--amber-dark);}
+  /* Work Sans, not IBM Plex Mono — a monospace face here read as code/terminal output */
+  .hero-kicker{
+    font-family:'Work Sans', sans-serif; font-size:1.08rem; font-weight:500;
+    letter-spacing:0; color:var(--navy); margin-bottom:30px; max-width:40ch;
+  }
+  @media(max-width:900px){ .hero-kicker{font-size:1rem;} }
+  /* single-CTA hero: the phone was removed here on purpose so the quote form is
+     the only path forward — don't reintroduce a competing call-us action */
+  .hero .actions{display:flex; flex-direction:column; align-items:flex-start; gap:12px;}
+  .hero-cta{padding:15px 34px; font-size:1.02rem;}
+  /* darker than --slate: on the hero band (not white) plain slate is 4.43:1, just under AA */
+  .cta-sub{font-size:0.88rem; color:#4F5F6E;}
+  .hero-wave{position:absolute; left:0; bottom:-1px; width:100%; height:100px; display:block;}
+  @media(max-width:900px){
+    .hero-inner{grid-template-columns:1fr; align-items:start; min-height:0;}
+    .hero-photo{min-height:0; height:300px; order:-1;}
+    .hero-photo img{object-position:50% 38%;}
+    .hero-photo::after{background:linear-gradient(180deg,
+      rgba(var(--hero-band-rgb), 0) 55%, rgba(var(--hero-band-rgb), 1) 99%);}
+    .hero-content{padding:28px 24px 88px;}
+    .hero-wave{height:64px;}
+  }
+
+  /* TRAIL SECTION (signature element) */
+  .trail-section{padding:70px 0 90px; background:var(--royal); position:relative;}
+  .trail-section .eyebrow{color:#FFE0AE;}
+  .trail-section h2{font-size:1.9rem; margin-bottom:10px; color:#fff;}
+  .trail-section > .wrap > p{max-width:56ch; color:#DCE6F5; margin-bottom:56px;}
+  .trail{position:relative;}
+  /* 57px = card padding-top (26) + half the 62px icon circle — keeps the dashed
+     route line running through the centre of the step icons */
+  .trail svg.track{position:absolute; top:57px; left:0; width:100%; height:2px; z-index:0;}
+  /* stroke set in CSS (not a presentation attribute) so it stays tied to the palette */
+  .trail svg.track line{stroke:var(--blue-bright);}
+  .trail-steps{display:grid; grid-template-columns:repeat(3,1fr); gap:32px; position:relative; z-index:1;}
+  @media(max-width:760px){ .trail-steps{grid-template-columns:1fr;} .trail svg.track{display:none;} }
+  .step{background:var(--white); border:1px solid var(--line); border-radius:4px; padding:26px 22px;}
+  /* icon-in-circle + small number badge (replaced the plain numbered circle) */
+  .step-icon{
+    position:relative; width:62px; height:62px; border-radius:50%;
+    background:var(--tint); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; margin-bottom:18px;
+  }
+  .step-icon > svg{width:32px; height:32px; color:var(--blue);}
+  .step-num{
+    position:absolute; top:-3px; right:-3px;
+    width:23px; height:23px; border-radius:50%;
+    background:var(--navy); color:#fff;
+    font-family:'Work Sans',sans-serif; font-size:0.72rem; font-weight:700;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .step h3{font-size:1.15rem; margin-bottom:8px; color:var(--ink);}
+  .step p{font-size:0.94rem; color:var(--slate);}
+  .guarantee-badge{
+    display:inline-flex; align-items:center; gap:5px; margin-top:12px;
+    background:var(--tint); color:var(--navy); font-size:0.8rem; font-weight:700;
+    padding:6px 12px; border-radius:20px; text-decoration:none;
+  }
+  .guarantee-badge:hover{background:var(--line);}
+
+
+  /* SERVICES / PRICING */
+  .services{padding:90px 0;}
+  .services h2{font-size:1.9rem; margin-bottom:10px;}
+  .services > .wrap > p{max-width:56ch; color:var(--slate); margin-bottom:48px;}
+  .plans{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  @media(max-width:820px){ .plans{grid-template-columns:1fr;} }
+  .plan{
+    border:1px solid var(--line); border-radius:6px; padding:32px 26px;
+    background:#fff; display:flex; flex-direction:column;
+  }
+  .plan.featured{border-color:var(--amber); box-shadow:0 8px 24px rgba(11,46,79,0.10);}
+  .plan .tag{font-family:'Work Sans',sans-serif; font-weight:700; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--amber-dark); margin-bottom:12px;}
+  .plan h3{font-size:1.3rem; margin-bottom:6px;}
+  .plan .price{font-family:'Fraunces',serif; font-size:2.1rem; color:var(--navy); margin:10px 0;}
+  /* :not(.amount) — this rule was greying out the price number itself, not just the '/visit' suffix */
+  .plan .price span:not(.amount){font-family:'Work Sans',sans-serif; font-size:0.95rem; color:var(--slate); font-weight:400;}
+  .plan ul{list-style:none; margin:18px 0 26px; flex-grow:1;}
+  .plan li{font-size:0.92rem; padding:7px 0; border-top:1px solid var(--line); display:flex; gap:8px;}
+  .plan li:first-child{border-top:none;}
+  .plan li::before{content:"—"; color:var(--amber);}
+  .note{font-size:0.82rem; color:#7A8794; margin-top:36px;}
+  .plan .dogs-select{margin-bottom:4px;}
+  .plan .dogs-select label{display:block; font-size:0.78rem; font-weight:600; color:var(--navy); margin-bottom:6px;}
+  .plan .dogs-select select{
+    width:100%; padding:9px 10px; border:1px solid var(--line); border-radius:3px;
+    font-family:'Work Sans',sans-serif; font-size:0.9rem; background:var(--white); color:var(--ink);
+  }
+  .plan .subscribe-btn{
+    background:var(--amber); color:var(--navy-deep); border:none; padding:12px 20px; border-radius:3px;
+    font-weight:600; font-size:0.92rem; cursor:pointer; width:100%; text-align:center;
+    text-decoration:none; display:block; margin-top:auto;
+  }
+  .plan .subscribe-btn:hover{background:var(--amber-hover);}
+  .plan .custom-note{font-size:0.8rem; color:var(--navy-deep); background:var(--tint); border:1px solid var(--line); border-radius:3px; padding:8px 10px; margin-top:10px; display:none;}
+  .plan .custom-note.show{display:block;}
+
+  /* SERVICE AREA */
+  .area{padding:80px 0; background:var(--navy); color:var(--white);}
+  .area .area-eyebrow{color:#FFD08A;}
+  .area h2{color:var(--white); font-size:1.9rem; margin-bottom:16px;}
+  /* was #d7ddd6, a greenish-gray left over from the original forest-green palette */
+  .area p{max-width:60ch; color:#C3D2DF; margin-bottom:28px;}
+  .chips{display:flex; flex-wrap:wrap; gap:10px;}
+  /* Work Sans, not IBM Plex Mono — these are real place names (owner: "coding looking"),
+     not short editorial labels like .eyebrow/.plan .tag, so mono read as robotic here. */
+  .chip{
+    font-family:'Work Sans', sans-serif; font-weight:500; font-size:0.85rem;
+    /* border was rgba(237,232,217,.35) = the original palette's cream/bone, stranded here */
+    border:1px solid rgba(255,255,255,0.35); padding:7px 16px; border-radius:20px;
+  }
+
+  /* CONTACT — kept simple (info card + CTA) on the homepage. The actual
+     multi-step quote wizard lives on its own page, quote.html, per the
+     owner's request: "Get a Free Quote" should navigate to a different
+     page/URL, not reveal content on the same page. Don't rebuild the wizard
+     here — edit quote.html instead. See that file for the wizard's CSS/JS. */
+  .contact{padding:90px 0;}
+  .contact .wrap{display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px;}
+  @media(max-width:820px){ .contact .wrap{grid-template-columns:1fr;} }
+  .contact h2{font-size:1.9rem; margin-bottom:16px;}
+  .contact p{color:var(--slate); max-width:42ch;}
+  .contact .details{margin-top:28px; font-size:0.95rem;}
+  .contact .details div{padding:8px 0; border-top:1px solid var(--line);}
+  .contact .details div:first-child{border-top:none;}
+  .contact-cta-card{
+    background:#fff; border:1px solid var(--line); border-radius:6px; padding:36px 32px;
+    display:flex; flex-direction:column; align-items:flex-start; gap:14px;
+  }
+  .contact-cta-card h3{font-size:1.3rem;}
+  .contact-cta-card p{color:var(--slate); max-width:38ch;}
+  .contact-cta-card .cta-btn{margin-top:4px;}
+  .form-note{font-size:0.82rem; color:var(--slate); margin-top:2px;}
+  .form-note a{color:var(--navy); font-weight:600; text-decoration:none;}
+  .form-note a:hover{color:var(--blue);}
+
+  /* NAV PHONE */
+  .nav-right{display:flex; align-items:center; gap:18px;}
+  .nav-phone{
+    font-family:'Work Sans', sans-serif; font-size:0.95rem; font-weight:600;
+    color:var(--navy); text-decoration:none; white-space:nowrap;
+  }
+  .nav-phone:hover{color:var(--amber);}
+  @media(max-width:520px){ .nav-phone{display:none;} }
+
+
+  /* WHY IT MATTERS */
+  .why{padding:80px 0; background:var(--white);}
+  .why h2{font-size:1.9rem; margin-bottom:10px;}
+  .why > .wrap > p{max-width:56ch; color:var(--slate); margin-bottom:44px;}
+  .why-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  @media(max-width:820px){ .why-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:480px){ .why-grid{grid-template-columns:1fr;} }
+  .why-card{background:var(--tint); border:1px solid var(--line); border-radius:6px; padding:24px 20px;}
+  .why-card .ico{font-size:1.6rem; margin-bottom:12px; display:block;}
+  .why-card h3{font-size:1.05rem; margin-bottom:6px; color:var(--ink);}
+  .why-card p{font-size:0.9rem; color:var(--slate);}
+
+  /* WHY CHOOSE US — tint, not royal: with the Pricing section removed, this
+     sits directly above the navy Service Area band, and royal-next-to-navy
+     read as two clashing blues (see .faq for the same fix). */
+  .choose{padding:90px 0; background:var(--tint);}
+  .choose .eyebrow{color:var(--amber-dark);}
+  .choose h2{font-size:1.9rem; margin-bottom:10px; color:var(--navy);}
+  .choose > .wrap > p{max-width:56ch; color:var(--slate); margin-bottom:44px;}
+  /* 6 columns, each item spans 2 — lets the trailing single item (item 4,
+     after "Cheaper than your time" was removed 2026-07-21) sit truly centred.
+     For ONE 2-wide item to centre in 6 columns it needs 2 empty columns on
+     each side, i.e. grid-column 3/5 — NOT 2/4, which was the correct math for
+     centring a PAIR (when there were 5 items total) but centres a single item
+     off to the left instead. Recompute this if the item count changes again:
+     centred start-line = (6 - itemSpan)/2 + 1. */
+  .choose-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:28px 32px;}
+  .choose-item{grid-column:span 2; display:flex; gap:14px; align-items:flex-start;}
+  @media(max-width:820px){
+    .choose-grid{grid-template-columns:1fr;}
+    .choose-item{grid-column:auto;}
+  }
+  .choose-item .check{width:22px; height:22px; flex-shrink:0; color:var(--blue); margin-top:1px;}
+  .choose-item h3{font-size:1.05rem; margin-bottom:4px; color:var(--ink);}
+  .choose-item p{font-size:0.9rem; color:var(--slate);}
+
+  /* MOBILE NAV */
+  .nav-toggle{
+    display:none; background:none; border:1px solid var(--line); border-radius:4px;
+    cursor:pointer; padding:7px 11px; font-size:1.15rem; color:var(--navy); line-height:1;
+  }
+  .nav-toggle:hover{border-color:var(--navy);}
+  .mobile-menu{display:none; background:var(--white); border-bottom:1px solid var(--line); padding:4px 24px 20px;}
+  .mobile-menu.open{display:block;}
+  .mobile-menu ul{list-style:none; display:block;}
+  .mobile-menu li{border-top:1px solid var(--line);}
+  .mobile-menu a{display:block; padding:13px 2px; text-decoration:none; color:var(--ink); font-weight:500; font-size:0.98rem;}
+  .mobile-menu a:hover{color:var(--amber);}
+  .mobile-menu .m-phone{
+    margin-top:16px; display:block; font-family:'Work Sans', sans-serif;
+    font-weight:600; color:var(--navy); text-decoration:none; font-size:1rem;
+  }
+  /* 1050, not 900: below ~1050 the 7 nav links wrap to two lines and look cramped,
+     so hand off to the hamburger before that happens */
+  @media(max-width:1050px){
+    nav ul{display:none;}
+    .nav-phone{display:none;}
+    .nav-toggle{display:block;}
+  }
+  /* below 560px the logo + CTA + burger no longer fit — drop the nav CTA
+     (the hero CTA and the mobile menu both still cover that action) */
+  @media(max-width:560px){
+    .nav-right .cta-btn{display:none;}
+    nav.wrap{padding:14px 20px;}
+  }
+  @media(min-width:1051px){ .mobile-menu{display:none !important;} }
+
+  /* FAQ */
+  .faq{padding:90px 0; background:var(--tint);}
+  .faq .eyebrow{color:var(--amber-dark);}
+  .faq h2{font-size:1.9rem; margin-bottom:10px; color:var(--navy);}
+  .faq > .wrap > p{max-width:56ch; color:var(--slate); margin-bottom:40px;}
+  .faq-list{max-width:780px;}
+  .faq details{background:var(--white); border:1px solid var(--line); border-radius:6px; margin-bottom:12px; padding:0 20px;}
+  .faq summary{
+    cursor:pointer; padding:18px 0; font-weight:600; font-size:1rem; color:var(--navy);
+    list-style:none; display:flex; justify-content:space-between; gap:16px; align-items:center;
+  }
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+"; color:var(--amber); font-size:1.35rem; flex-shrink:0; line-height:1;}
+  .faq details[open] summary::after{content:"–";}
+  .faq details p{padding:0 0 18px; font-size:0.93rem; color:var(--slate); max-width:64ch;}
+
+  /* FOOTER */
+  footer{background:var(--navy); color:#C3D2DF; padding:56px 0 26px; font-size:0.86rem;}
+  .footer-grid{
+    display:grid; grid-template-columns:1.5fr 1fr 1fr 1.1fr; gap:36px;
+    padding-bottom:32px; border-bottom:1px solid #1B4467;
+  }
+  @media(max-width:820px){ .footer-grid{grid-template-columns:1fr 1fr; gap:30px;} }
+  @media(max-width:480px){ .footer-grid{grid-template-columns:1fr;} }
+  .footer-grid h4{
+    font-family:'Work Sans',sans-serif; font-size:0.72rem; letter-spacing:0.1em;
+    text-transform:uppercase; color:#FFD08A; margin-bottom:14px; font-weight:700;
+  }
+  .footer-mark{width:48px; margin-bottom:12px;}
+  .footer-brand .fb-name{font-family:'Fraunces',serif; font-size:1.15rem; color:var(--white); margin-bottom:4px;}
+  .footer-brand .fb-slogan{font-size:0.85rem; font-weight:600; color:#FFD08A; margin-bottom:12px;}
+  .footer-grid ul{list-style:none;}
+  .footer-grid li{margin-bottom:9px;}
+  .footer-grid a{color:#C3D2DF; text-decoration:none;}
+  .footer-grid a:hover{color:var(--amber);}
+  .footer-grid p{line-height:1.65;}
+  .footer-bottom{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px;
+    align-items:center; padding-top:22px; font-size:0.8rem; color:#C3D2DF;
+  }
+  .footer-bottom .social a{color:#C3D2DF; text-decoration:none; margin-left:16px;}
+  .footer-bottom .social a:hover{color:var(--amber);}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a class="logo" href="#top">
+      <img class="logo-img" src="logo/pet-waste-wagon-logo-horizontal.png" alt="Pet Waste Wagon">
+    </a>
+    <ul>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#why-us">Why Us</a></li>
+      <li><a href="#area">Service Area</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:+17045599522">(704) 559-9522</a>
+      <a class="cta-btn" href="quote.html">Get a Free Quote</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#why-us">Why Us</a></li>
+      <li><a href="#area">Service Area</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="m-phone" href="tel:+17045599522"><svg class="inline-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.3 3.5h3l1.5 3.8-1.9 1.1a12 12 0 0 0 5.7 5.7l1.1-1.9 3.8 1.5v3a1.8 1.8 0 0 1-2 1.8A15.6 15.6 0 0 1 4.5 5.5a1.8 1.8 0 0 1 1.8-2z"/></svg> (704) 559-9522</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div class="hero-photo">
+      <img src="https://placedog.net/1100/1200?id=3" alt="Happy golden retriever grinning in a Charlotte backyard" loading="eager">
+    </div>
+    <div class="hero-content">
+      <h1>Consider it <em>handled!</em><br>We haul away what your dog leaves behind.</h1>
+      <p class="hero-kicker">Weekly &amp; bi-weekly pet waste removal for Charlotte yards.</p>
+      <div class="actions">
+        <a class="cta-btn hero-cta" href="quote.html">Get a Free Quote</a>
+        <span class="cta-sub">Same-day reply, usually within a couple hours.</span>
+      </div>
+    </div>
+  </div>
+  <svg class="hero-wave" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 52C240 10 480 82 720 62S1200 10 1440 38V100H0z" fill="var(--royal)"/>
+    <path d="M0 52C240 10 480 82 720 62S1200 10 1440 38" fill="none" stroke="var(--amber)" stroke-width="6"/>
+  </svg>
+</section>
+
+<section class="trail-section" id="how">
+  <div class="wrap">
+    <span class="eyebrow">The Route</span>
+    <h2>How it works</h2>
+    <div class="trail">
+      <svg class="track" viewBox="0 0 100 2" preserveAspectRatio="none">
+        <line x1="0" y1="1" x2="100" y2="1" stroke-width="0.6" stroke-dasharray="2,3"/>
+      </svg>
+      <div class="trail-steps">
+        <div class="step">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3.3" y="5" width="17.4" height="15.6" rx="2.6"/>
+              <path d="M3.3 9.6h17.4"/>
+              <path d="M8 3.1v3.6M16 3.1v3.6"/>
+              <path d="M9.1 14.4l2 2 3.8-3.9"/>
+            </svg>
+            <span class="step-num">1</span>
+          </div>
+          <h3>Book your route</h3>
+          <p>Tell us your yard size, dog count, and how often you want us — weekly, bi-weekly, or a one-time deep clean.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5.6 9.6h12.1a1.9 1.9 0 0 1 1.9 1.9v3a1.9 1.9 0 0 1-1.9 1.9H5.6a1.9 1.9 0 0 1-1.9-1.9v-3a1.9 1.9 0 0 1 1.9-1.9z"/>
+              <path d="M3.9 9.4C2.7 8.2 3 6.1 4.9 5.4"/>
+              <circle cx="8" cy="19.5" r="1.9"/>
+              <circle cx="15.4" cy="19.5" r="1.9"/>
+            </svg>
+            <span class="step-num">2</span>
+          </div>
+          <h3>We roll through</h3>
+          <p>We come by on your scheduled day, let ourselves in through the gate, scoop every corner, and take it with us.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">
+            <!-- paw, not a dog face: a face in single-colour stroke reads as bear/monkey at 32px -->
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <ellipse cx="5.6" cy="10.1" rx="1.9" ry="2.5" transform="rotate(-18 5.6 10.1)"/>
+              <ellipse cx="9.9" cy="7.3" rx="2" ry="2.75" transform="rotate(-7 9.9 7.3)"/>
+              <ellipse cx="14.4" cy="7.3" rx="2" ry="2.75" transform="rotate(7 14.4 7.3)"/>
+              <ellipse cx="18.5" cy="10.1" rx="1.9" ry="2.5" transform="rotate(18 18.5 10.1)"/>
+              <path d="M12 12.5c3.2 0 5.6 2.4 5.6 4.8 0 1.9-1.5 3-3.4 3-1.1 0-1.6-.4-2.2-.4s-1.1.4-2.2.4c-1.9 0-3.4-1.1-3.4-3 0-2.4 2.4-4.8 5.6-4.8z"/>
+            </svg>
+            <span class="step-num">3</span>
+          </div>
+          <h3>Yard's clean</h3>
+          <p>You get a text and a photo of your locked gate when we're done. That's it — guaranteed clean!</p>
+          <a href="#faq" class="guarantee-badge">Guaranteed clean →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap">
+    <span class="eyebrow">Why It Matters</span>
+    <h2>More than an eyesore</h2>
+    <p>Dog waste left in the yard isn't just unpleasant to step around — it's a real health and lawn problem. Here's what a consistently clean yard actually protects.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <svg class="ico-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.2-2.9 7.8-7 8.5-4.1-.7-7-4.3-7-8.5V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+        <h3>Stops the spread</h3>
+        <p>Waste carries parasites and bacteria — roundworm, giardia, E. coli — that linger in soil and put pets and kids at risk.</p>
+      </div>
+      <div class="why-card">
+        <svg class="ico-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7s5.8 6.3 5.8 10.3A5.8 5.8 0 0 1 12 18.8a5.8 5.8 0 0 1-5.8-5.8C6.2 9 12 2.7 12 2.7z"/><path d="M9.4 13.2a2.6 2.6 0 0 0 2.6 2.6"/></svg>
+        <h3>Protects the water</h3>
+        <p>Rain washes uncollected waste into storm drains and Charlotte's creeks. Regular pickup keeps it out of the watershed.</p>
+      </div>
+      <div class="why-card">
+        <svg class="ico-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21v-8"/><path d="M12 13c0-4 2.6-7.2 7-7.6.4 4.6-2.4 7.6-7 7.6z"/><path d="M12 16c-3.6 0-6-2.4-6.4-6C9 10.3 11.4 12.4 12 16z"/></svg>
+        <h3>Saves your lawn</h3>
+        <p>Waste left sitting burns and yellows grass. A regularly cleaned yard stays greener with less patchy die-off.</p>
+      </div>
+      <div class="why-card">
+        <svg class="ico-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10a3 3 0 1 0-3-3"/><path d="M3 12h14a3 3 0 1 1-3 3"/><path d="M3 16h7"/></svg>
+        <h3>Kills the smell</h3>
+        <p>No more holding your breath by the back door or apologizing to guests — just a yard you actually want to use.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="choose" id="why-us">
+  <div class="wrap">
+    <span class="eyebrow">The Pet Waste Wagon Difference</span>
+    <h2>Why Charlotte picks the Wagon</h2>
+    <p>We built this to be the easiest, most honest option in town — prices right out front, on your schedule, no strings.</p>
+    <div class="choose-grid">
+      <div class="choose-item"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.2" stroke-width="1.6"/><path d="M8 12.3l2.7 2.7L16 9.7"/></svg><div><h3>Prices you can actually see</h3><p>Real per-visit rates listed right on the site — no "call for a quote" runaround before you know the cost.</p></div></div>
+      <div class="choose-item"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.2" stroke-width="1.6"/><path d="M8 12.3l2.7 2.7L16 9.7"/></svg><div><h3>No contracts, ever</h3><p>Weekly or bi-weekly, cancel anytime from your account. Stay because it's worth it, not because you're locked in.</p></div></div>
+      <div class="choose-item"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.2" stroke-width="1.6"/><path d="M8 12.3l2.7 2.7L16 9.7"/></svg><div><h3>Proof every visit</h3><p>You'll know exactly when we came and went — no guessing, no wondering if we skipped a week.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="area" id="area">
+  <div class="wrap">
+    <span class="eyebrow area-eyebrow">Where We Roll</span>
+    <h2>Serving Charlotte and nearby</h2>
+    <p>Currently booking routes across the following areas — let us know your neighborhood when you request a quote.</p>
+    <div class="chips">
+      <span class="chip">South Charlotte</span>
+      <span class="chip">SouthPark</span>
+      <span class="chip">Ballantyne</span>
+      <span class="chip">Dilworth</span>
+      <span class="chip">Steele Creek</span>
+      <span class="chip">Pineville</span>
+      <span class="chip">Fort Mill, SC</span>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <span class="eyebrow">Questions</span>
+    <h2>Before you book</h2>
+    <p>The things people ask us most. Anything else, just call or send a note — we answer same day.</p>
+    <div class="faq-list">
+      <details>
+        <summary>Do I need to be home when you come?</summary>
+        <p>Nope. Most of our customers aren't. We just need access to the yard — an unlocked gate or a gate code you give us at signup. You'll get a text and a photo of the closed gate when we're done, so you know exactly when we came and went.</p>
+      </details>
+      <details>
+        <summary>What if my gate is locked or my dog is outside?</summary>
+        <p>Leave us the gate code in the signup notes and we'll handle it. If your dog is friendly and out in the yard, that's usually fine — just tell us in advance. If your dog isn't comfortable with strangers, let us know and we'll work out a schedule where they're inside during our visit.</p>
+      </details>
+      <details>
+        <summary>What happens in bad weather?</summary>
+        <p>We run our routes rain or shine. If there's severe weather — heavy storms, ice, anything unsafe — we'll push your visit to the next available day and text you about it.</p>
+      </details>
+      <details>
+        <summary>What do you do with the waste?</summary>
+        <p>It's double-bagged and hauled off your property — nothing gets left behind in your bins unless you specifically ask us to. Our tools get cleaned between yards so nothing travels from one property to the next.</p>
+      </details>
+      <details>
+        <summary>Am I locked into a contract?</summary>
+        <p>No contracts, ever. Weekly and bi-weekly plans are subscriptions you can cancel anytime from your account. Switch between plans, pause for a vacation, or cancel outright — no cancellation fee, no phone call required.</p>
+      </details>
+      <details>
+        <summary>I have more than four dogs. Can you still help?</summary>
+        <p>Absolutely. Our posted pricing covers up to four dogs; beyond that (or for unusually large properties) we'll put together a custom quote. Use the quote form below and tell us how many dogs and roughly how big the yard is.</p>
+      </details>
+      <details>
+        <summary>What if I'm not happy with a cleanup?</summary>
+        <p>Tell us within 24 hours and we'll come back and re-clean it at no charge. We'd rather fix it than have you wondering whether it was worth it.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Get Started</span>
+      <h2>Request your free quote</h2>
+      <p>Tell us about your yard and we'll text back a quote same day — usually within a couple hours.</p>
+      <div class="details">
+        <div><strong>Email</strong><br>petwastewagon@gmail.com</div>
+        <div><strong>Instagram</strong><br>@petwastewagonclt</div>
+        <div><strong>Service hours</strong><br>Mon–Sun, weekday routes after 5pm</div>
+      </div>
+    </div>
+    <div class="contact-cta-card">
+      <h3>Ready when you are</h3>
+      <p>Answer a few quick questions about your yard and we'll text back a price — most folks hear from us same day.</p>
+      <a class="cta-btn" href="quote.html">Get Your Free Quote →</a>
+      <p class="form-note">Prefer to talk it through? Call <a href="tel:+17045599522">(704) 559-9522</a>.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="fb-name">Pet Waste Wagon</div>
+        <div class="fb-slogan">Professional. Reliable. Clean.</div>
+        <p>Weekly and bi-weekly dog waste removal for Charlotte yards. No contracts, transparent pricing, and proof after every visit.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#why-us">Why Us</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Service Area</h4>
+        <ul>
+          <li>South Charlotte</li>
+          <li>SouthPark &amp; Ballantyne</li>
+          <li>Dilworth &amp; Steele Creek</li>
+          <li>Pineville</li>
+          <li>Fort Mill, SC</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get In Touch</h4>
+        <ul>
+          <li><a href="tel:+17045599522">(704) 559-9522</a></li>
+          <li><a href="mailto:petwastewagon@gmail.com">petwastewagon@gmail.com</a></li>
+          <li>Mon–Sun</li>
+          <li><a href="quote.html">Request a free quote →</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Pet Waste Wagon · Charlotte, NC</div>
+      <div class="social">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle — closes on link tap so the anchor jump isn't hidden behind the panel.
+  (function(){
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('mobileMenu');
+    if(!toggle || !menu) return;
+    function setOpen(open){
+      menu.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.textContent = open ? '✕' : '☰';
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    }
+    toggle.addEventListener('click', function(){
+      setOpen(!menu.classList.contains('open'));
+    });
+    menu.addEventListener('click', function(e){
+      if(e.target.tagName === 'A') setOpen(false);
+    });
+  })();
+
+  // The quote wizard (and its mailto submit handler) lives on its own page,
+  // quote.html — see that file for the equivalent JS. Nothing to run here.
+</script>
+
+</body>
+</html>

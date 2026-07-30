@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/johnny/Documents/**)",
+      "Read(//c/Users/johnny/**)",
+      "WebSearch"
+    ]
+  }
+}
