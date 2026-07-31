@@ -69,7 +69,7 @@
   }
   nav.wrap{
     display:flex; align-items:center; justify-content:space-between;
-    padding:16px 24px; gap:22px;
+    padding:16px 24px; gap:16px;
   }
   .logo{font-family:'Fraunces', serif; font-weight:700; font-size:1.2rem; color:var(--navy); display:flex; align-items:center; gap:10px; white-space:nowrap; text-decoration:none;}
   @media(max-width:400px){ .logo{font-size:1rem;} }
@@ -97,13 +97,13 @@
   /* SVG ICONS (replaces emoji) */
   .ico-svg{width:30px; height:30px; display:block; margin-bottom:14px; color:var(--blue);}
   .inline-ico{width:16px; height:16px; flex-shrink:0; vertical-align:-3px;}
-  nav ul{list-style:none; display:flex; gap:20px;}
+  nav ul{list-style:none; display:flex; gap:16px;}
   /* the 7 nav links + logo + phone + CTA fill the bar exactly at ~1280px and collide;
      drop the nav phone at mid widths — it's still prominent in the hero and mobile menu */
   @media(max-width:1180px){ .nav-phone{display:none;} }
   nav ul a{
     font-size:0.92rem; font-weight:500; text-decoration:none; color:var(--ink);
-    border-bottom:2px solid transparent; padding-bottom:2px;
+    border-bottom:2px solid transparent; padding-bottom:2px; white-space:nowrap;
   }
   nav ul a:hover{border-color:var(--amber);}
   .cta-btn{
