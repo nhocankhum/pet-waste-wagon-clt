@@ -12,45 +12,49 @@
 <meta property="og:description" content="Why Pet Waste Wagon exists: transparent pricing, no contracts, and proof of every visit for Charlotte, NC dog waste removal.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --blue: #0099D8;
-    --navy: #00539B;
-    --navy-deep: #003D70;
-    --blue-bright: #4FBCEA;
-    --tint: #EFF6FD;
-    --hero-band-rgb: 255, 255, 255;
+    --blue: #2D7FF9;
+    --navy: #16305C;
+    --navy-deep: #0F2445;
+    --blue-bright: #5FA8FF;
+    --tint: #DCEEFC;
+    --hero-band-rgb: 214, 236, 252;
     --hero-band: rgb(var(--hero-band-rgb));
-    --line: #D6E4F2;
+    --line: #C9DDF2;
+    --card-border: var(--navy);
     --white: #FFFFFF;
-    --amber: #F0A03C;
-    --amber-hover: #E08F28;
-    --amber-dark: #96590A;
-    --slate: #5A6B7C;
-    --royal: #3558CB;
+    --amber: #F5821F;
+    --amber-hover: #DD6E10;
+    --amber-dark: #A6480A;
+    --red: #E03131;
+    --green: #3FAE3A;
+    --slate: #4A5A72;
+    --royal: #2D7FF9;
     --ink: #16202B;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
   body{
-    font-family:'Work Sans', sans-serif;
+    font-family:'Nunito', sans-serif;
     background:var(--white);
     color:var(--ink);
     line-height:1.55;
   }
-  h1,h2,h3{font-family:'Fraunces', serif; font-weight:600; color:var(--navy);}
+  h1,h2,h3{font-family:'Baloo 2', sans-serif; font-weight:700; color:var(--navy);}
   a{color:inherit;}
   .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+  .accent-hand{font-family:'Caveat', cursive; font-weight:700;}
   .eyebrow{
-    font-family:'Work Sans', sans-serif; font-weight:700; font-size:0.72rem; letter-spacing:0.12em;
+    font-family:'Nunito', sans-serif; font-weight:800; font-size:0.72rem; letter-spacing:0.1em;
     text-transform:uppercase; color:var(--amber-dark); display:block; margin-bottom:10px;
   }
 
   /* NAV — identical to petwastewagonclt-website.html, anchors repointed to that file */
   header{position:sticky; top:0; z-index:50; background:var(--white); border-bottom:1px solid var(--line);}
   nav.wrap{display:flex; align-items:center; justify-content:space-between; padding:16px 24px; gap:22px;}
-  .logo{font-family:'Fraunces', serif; font-weight:700; font-size:1.2rem; color:var(--navy); display:flex; align-items:center; gap:10px; white-space:nowrap; text-decoration:none;}
+  .logo{font-family:'Baloo 2', sans-serif; font-weight:700; font-size:1.2rem; color:var(--navy); display:flex; align-items:center; gap:10px; white-space:nowrap; text-decoration:none;}
   @media(max-width:400px){ .logo{font-size:1rem;} }
   .logo-img{height:56px; width:auto; display:block;}
   @media(max-width:400px){ .logo-img{height:42px;} }
@@ -77,11 +81,11 @@
   @media(max-width:1180px){ .nav-phone{display:none;} }
   nav ul a{font-size:0.92rem; font-weight:500; text-decoration:none; color:var(--ink); border-bottom:2px solid transparent; padding-bottom:2px;}
   nav ul a:hover{border-color:var(--amber);}
-  .cta-btn{background:var(--amber); color:var(--navy-deep); padding:10px 20px; border-radius:3px; text-decoration:none; font-weight:600; font-size:0.9rem; border:1px solid var(--amber); transition:background .15s, transform .15s; display:inline-block;}
+  .cta-btn{background:var(--amber); color:var(--navy-deep); padding:11px 24px; border-radius:999px; text-decoration:none; font-weight:800; font-size:0.9rem; border:2px solid var(--navy-deep); transition:background .15s, transform .15s; display:inline-block;}
   .cta-btn:hover{background:var(--amber-hover); transform:translateY(-1px);}
   @media(max-width:760px){ nav ul{display:none;} }
   .nav-right{display:flex; align-items:center; gap:18px;}
-  .nav-phone{font-family:'Work Sans', sans-serif; font-size:0.95rem; font-weight:600; color:var(--navy); text-decoration:none; white-space:nowrap;}
+  .nav-phone{font-family:'Nunito', sans-serif; font-size:0.95rem; font-weight:700; color:var(--navy); text-decoration:none; white-space:nowrap;}
   .nav-phone:hover{color:var(--amber);}
   @media(max-width:520px){ .nav-phone{display:none;} }
 
@@ -94,7 +98,7 @@
   .mobile-menu li{border-top:1px solid var(--line);}
   .mobile-menu a{display:block; padding:13px 2px; text-decoration:none; color:var(--ink); font-weight:500; font-size:0.98rem;}
   .mobile-menu a:hover{color:var(--amber);}
-  .mobile-menu .m-phone{margin-top:16px; display:block; font-family:'Work Sans', sans-serif; font-weight:600; color:var(--navy); text-decoration:none; font-size:1rem;}
+  .mobile-menu .m-phone{margin-top:16px; display:block; font-family:'Nunito', sans-serif; font-weight:700; color:var(--navy); text-decoration:none; font-size:1rem;}
   @media(max-width:1050px){
     nav ul{display:none;}
     .nav-phone{display:none;}
@@ -112,13 +116,13 @@
   .about-intro p{font-size:1.05rem; color:var(--slate); max-width:62ch;}
 
   /* VALUES GRID — same visual pattern as the homepage's "Why It Matters" cards */
-  .values{padding:70px 0; background:var(--tint);}
+  .values{padding:70px 0; background:var(--white);}
   .values h2{font-size:1.8rem; margin-bottom:10px;}
   .values > .wrap > p{max-width:56ch; color:var(--slate); margin-bottom:40px;}
   .values-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
   @media(max-width:820px){ .values-grid{grid-template-columns:repeat(2,1fr);} }
   @media(max-width:480px){ .values-grid{grid-template-columns:1fr;} }
-  .value-card{background:var(--white); border:1px solid var(--line); border-radius:6px; padding:24px 20px;}
+  .value-card{background:var(--tint); border:2px solid var(--card-border); border-radius:14px; padding:24px 20px;}
   .value-card svg{width:28px; height:28px; color:var(--blue); margin-bottom:14px; display:block;}
   .value-card h3{font-size:1.05rem; margin-bottom:6px; color:var(--ink);}
   .value-card p{font-size:0.9rem; color:var(--slate);}
@@ -130,7 +134,9 @@
   .promise-list{list-style:none; display:grid; grid-template-columns:repeat(2,1fr); gap:18px 32px; max-width:840px;}
   @media(max-width:700px){ .promise-list{grid-template-columns:1fr;} }
   .promise-list li{display:flex; gap:12px; align-items:flex-start; font-size:0.96rem; color:var(--ink);}
-  .promise-list svg{width:20px; height:20px; color:var(--navy); flex-shrink:0; margin-top:2px;}
+  .promise-list svg{width:20px; height:20px; color:var(--green); flex-shrink:0; margin-top:2px;}
+  .closing-line{padding:0 0 70px; text-align:center; font-size:1.5rem;}
+  .closing-line .accent-hand{font-size:1.9rem; color:var(--blue);}
 
   /* CTA BAND */
   .about-cta{padding:80px 0; background:var(--royal); text-align:center;}
@@ -143,9 +149,9 @@
   .footer-grid{display:grid; grid-template-columns:1.5fr 1fr 1fr 1.1fr; gap:36px; padding-bottom:32px; border-bottom:1px solid #1B4467;}
   @media(max-width:820px){ .footer-grid{grid-template-columns:1fr 1fr; gap:30px;} }
   @media(max-width:480px){ .footer-grid{grid-template-columns:1fr;} }
-  .footer-grid h4{font-family:'Work Sans',sans-serif; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:#FFD08A; margin-bottom:14px; font-weight:700;}
+  .footer-grid h4{font-family:'Nunito',sans-serif; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:#FFD08A; margin-bottom:14px; font-weight:800;}
   .footer-mark{width:48px; margin-bottom:12px;}
-  .footer-brand .fb-name{font-family:'Fraunces',serif; font-size:1.15rem; color:var(--white); margin-bottom:4px;}
+  .footer-brand .fb-name{font-family:'Baloo 2',sans-serif; font-size:1.15rem; color:var(--white); margin-bottom:4px;}
   .footer-brand .fb-slogan{font-size:0.85rem; font-weight:600; color:#FFD08A; margin-bottom:12px;}
   .footer-grid ul{list-style:none;}
   .footer-grid li{margin-bottom:9px;}
@@ -243,6 +249,8 @@
     </ul>
   </div>
 </section>
+
+<p class="closing-line">Less poop in the yard. <span class="accent-hand">More time with your dog.</span></p>
 
 <section class="about-cta">
   <div class="wrap">
