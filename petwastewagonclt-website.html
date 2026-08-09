@@ -166,7 +166,13 @@
   @media(max-width:900px){ .why .wrap{grid-template-columns:1fr;} }
   .why-photo{position:relative; width:100%; max-width:340px;}
   .why-photo img{width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:50%; display:block; border:6px solid var(--white);}
-  .why h2.wavy{font-size:1.9rem; transform:rotate(-2deg); display:inline-block; margin-bottom:10px;}
+  /* the reference sets this label in the rounded display face, oversized and
+     tilted — it reads as a hand-lettered section marker, not a small eyebrow */
+  .why .eyebrow.wavy{
+    font-size:clamp(1.5rem,3.2vw,2.1rem); color:var(--slate-blue); font-weight:700;
+    transform:rotate(-5deg); transform-origin:left center; display:inline-block;
+    margin-bottom:26px; letter-spacing:0.04em;
+  }
   .why-sub{font-size:1.25rem; color:var(--slate-blue); font-family:'Baloo 2',sans-serif; font-weight:700; margin-bottom:28px;}
   .why-grid{display:grid; grid-template-columns:1fr; gap:16px;}
   .why-card{background:var(--white); border:2px solid var(--slate-blue); border-radius:12px; padding:18px 20px; display:flex; gap:14px; align-items:flex-start;}
@@ -179,8 +185,9 @@
   .choose{padding:90px 0; background:var(--white);}
   .choose .wrap{display:grid; grid-template-columns:1fr 0.85fr; gap:48px; align-items:center;}
   @media(max-width:900px){ .choose .wrap{grid-template-columns:1fr;} }
-  .choose h2{font-size:clamp(1.8rem,3.6vw,2.3rem); margin-bottom:24px;}
+  .choose h2{font-size:clamp(1.9rem,3.8vw,2.5rem); margin-bottom:24px; text-align:center; line-height:1.12;}
   .choose h2 .accent{color:var(--blue); display:block;}
+  .choose-right{display:flex; flex-direction:column;}
   .choose-list{display:flex; flex-direction:column; gap:16px;}
   .choose-item{display:flex; gap:16px; align-items:flex-start; border:2px solid var(--slate-blue); border-radius:12px; padding:16px 18px;}
   .choose-item .num{
@@ -467,11 +474,13 @@
   <svg class="wave wave-top" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 48C240 90 480 18 720 38S1200 90 1440 62V0H0z" fill="var(--white)"/></svg>
   <svg class="wave wave-bottom" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 52C240 10 480 82 720 62S1200 10 1440 38V100H0z" fill="var(--white)"/></svg>
   <div class="wrap">
-    <div class="why-photo">
-      <img src="https://placedog.net/700/700?id=2" alt="Happy dog enjoying a clean yard" loading="lazy">
+    <div class="why-left">
+      <span class="eyebrow wavy">WHY IT MATTERS</span>
+      <div class="why-photo">
+        <img src="https://placedog.net/700/700?id=2" alt="Happy dog enjoying a clean yard" loading="lazy">
+      </div>
     </div>
     <div>
-      <span class="eyebrow wavy">WHY IT MATTERS</span>
       <h2 class="why-sub">A Cleaner Yard. A Better Home.</h2>
       <div class="why-grid">
         <div class="why-card">
@@ -497,16 +506,16 @@
 
 <section class="choose" id="why-us">
   <div class="wrap">
-    <div>
-      <h2>WHY<span class="accent">CHOOSE US?</span></h2>
-      <div class="choose-list">
-        <div class="choose-item"><span class="num">1</span><div><h3>Transparent Pricing</h3><p>Know exactly what you'll pay before you book.</p></div></div>
-        <div class="choose-item"><span class="num">2</span><div><h3>No Contracts</h3><p>Stay because you love the service, not because you're locked in.</p></div></div>
-        <div class="choose-item"><span class="num">3</span><div><h3>Visit Proof</h3><p>Get a photo after every visit, so you know the job is done.</p></div></div>
-      </div>
+    <div class="choose-list">
+      <div class="choose-item"><span class="num">1</span><div><h3>Transparent Pricing</h3><p>Know exactly what you'll pay before you book.</p></div></div>
+      <div class="choose-item"><span class="num">2</span><div><h3>No Contracts</h3><p>Stay because you love the service, not because you're locked in.</p></div></div>
+      <div class="choose-item"><span class="num">3</span><div><h3>Visit Proof</h3><p>Get a photo after every visit, so you know the job is done.</p></div></div>
     </div>
-    <div class="choose-photo">
-      <img src="https://placedog.net/700/900?id=10" alt="Happy dog, one of the pups on our route" loading="lazy">
+    <div class="choose-right">
+      <h2>WHY<span class="accent">CHOOSE US?</span></h2>
+      <div class="choose-photo">
+        <img src="https://placedog.net/700/900?id=10" alt="Happy dog, one of the pups on our route" loading="lazy">
+      </div>
     </div>
   </div>
 </section>
