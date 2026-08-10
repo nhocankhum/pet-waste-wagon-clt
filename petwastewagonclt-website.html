@@ -169,7 +169,7 @@
      "sparkle" ticks and two oversized paws — all lifted from the reference */
   /* the paws live in .why-figure (not .why-photo) so they sit on the sky below
      the blob instead of being clipped by / overlapping the photo */
-  .why-figure{position:relative; width:100%; max-width:330px; margin:0 auto; padding-bottom:58px;}
+  .why-figure{position:relative; width:100%; max-width:330px; margin:0 auto; padding-bottom:76px;}
   .why-photo{position:relative; width:100%; aspect-ratio:1/1;}
   /* blob and photo use different radii AND opposite rotations on purpose — if
      they match, the blob reads as a uniform ring rather than a shape behind */
@@ -190,8 +190,11 @@
   .sparkle.s5{right:14%; top:10%; transform:rotate(34deg);}
   .why-paw{position:absolute; color:var(--teal);}
   .why-paw svg{width:100%; height:auto; display:block;}
-  .why-paw.w1{width:20%; left:-2%; bottom:34px;}
-  .why-paw.w2{width:24%; left:23%; bottom:-4px;}
+  /* offsets are tuned against the blob's bottom-left corner radius (56%/54% of
+     the 330px box) so neither paw clips the teal shape — if the blob's radius or
+     the figure's padding changes, re-check these */
+  .why-paw.w1{width:20%; left:-2%; bottom:40px;}
+  .why-paw.w2{width:24%; left:18%; bottom:2px;}
   /* the reference sets this label in the rounded display face, oversized and
      tilted — it reads as a hand-lettered section marker, not a small eyebrow */
   .why .eyebrow.wavy{
