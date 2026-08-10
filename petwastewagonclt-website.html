@@ -124,16 +124,12 @@
      by painting a slightly larger copy of the shapes in brown underneath, which
      unions cleanly instead of showing seams where the lobes meet the bar. */
   .bone-cta{
-    position:relative; display:block; width:310px; height:103px;
-    text-decoration:none; transition:transform .15s;
+    display:block; width:340px; max-width:100%;
+    text-decoration:none; transition:transform .15s; line-height:0;
   }
   .bone-cta:hover{transform:translateY(-2px);}
-  .bone-cta svg{position:absolute; inset:0; width:100%; height:100%;}
-  .bone-cta span{
-    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
-    font-family:'Baloo 2',sans-serif; font-weight:700; font-size:1.22rem; color:var(--brown);
-  }
-  @media(max-width:520px){ .bone-cta{width:264px; height:88px;} .bone-cta span{font-size:1.06rem;} }
+  .bone-cta img{width:100%; height:auto; display:block;}
+  @media(max-width:520px){ .bone-cta{width:280px;} }
 
   /* 3 STEPS */
   .trail-section{padding:70px 0 90px; background:var(--white);}
@@ -177,10 +173,11 @@
     position:absolute; inset:0; background:var(--teal);
     border-radius:62% 38% 44% 56% / 46% 52% 48% 54%; transform:rotate(-8deg);
   }
+  /* this is a background-removed cutout, so it is NOT clipped — it sits on the
+     blob and the teal shows through around the dog's silhouette, as in the
+     reference. Don't add border-radius/object-fit here or it re-crops the PNG. */
   .why-photo img{
-    position:absolute; left:9%; top:6%; width:84%; height:84%;
-    object-fit:cover; display:block; transform:rotate(3deg);
-    border-radius:54% 46% 50% 50% / 52% 46% 54% 48%;
+    position:absolute; left:7%; top:9%; width:86%; height:auto; display:block;
   }
   .sparkle{position:absolute; background:#fff; border-radius:4px; width:5px; height:19px;}
   .sparkle.s1{left:13%; top:9%; transform:rotate(-30deg);}
@@ -228,7 +225,8 @@
   .choose-item h3{font-size:1.05rem; margin-bottom:2px; font-family:'Baloo 2',sans-serif;}
   .choose-item p{font-size:0.9rem; color:var(--slate);}
   .choose-photo{position:relative;}
-  .choose-photo img{width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:24px; display:block; border:6px solid var(--white); box-shadow:0 14px 34px rgba(27,59,111,0.14);}
+  /* also a cutout — shown on the sky rather than boxed in a rounded frame */
+  .choose-photo img{width:100%; height:auto; display:block;}
 
   /* PRICING */
   .services{padding:90px 0; background:var(--white);}
@@ -285,6 +283,10 @@
 
   /* FAQ */
   .faq{padding:90px 0; background:var(--white);}
+  /* the watercolour breed row that sits above the FAQ heading in the reference */
+  .breed-row{display:flex; justify-content:center; align-items:flex-end; gap:clamp(6px,2vw,26px); margin-bottom:18px;}
+  .breed-row img{width:clamp(62px,9vw,116px); height:auto; display:block;}
+  @media(max-width:520px){ .breed-row img:nth-child(n+5){display:none;} }
   .faq h2{font-size:clamp(1.8rem,3.6vw,2.2rem); text-align:center; margin-bottom:40px;}
   .faq h2 .accent{color:var(--blue);}
   .faq-list{max-width:900px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:16px;}
@@ -424,7 +426,7 @@
       <div class="blob b1"></div>
       <div class="blob b2"></div>
       <div class="hero-photo-circle">
-        <img src="https://placedog.net/700/700?id=14" alt="Happy dog in a Charlotte backyard" loading="eager">
+        <img src="images/hero-samoyed.jpg" alt="Happy white dog in a Charlotte backyard" loading="eager">
       </div>
       <span class="paw p1"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><ellipse cx="5.6" cy="10.1" rx="1.9" ry="2.5" transform="rotate(-18 5.6 10.1)"/><ellipse cx="9.9" cy="7.3" rx="2" ry="2.75" transform="rotate(-7 9.9 7.3)"/><ellipse cx="14.4" cy="7.3" rx="2" ry="2.75" transform="rotate(7 14.4 7.3)"/><ellipse cx="18.5" cy="10.1" rx="1.9" ry="2.5" transform="rotate(18 18.5 10.1)"/><path d="M12 12.5c3.2 0 5.6 2.4 5.6 4.8 0 1.9-1.5 3-3.4 3-1.1 0-1.6-.4-2.2-.4s-1.1.4-2.2.4c-1.9 0-3.4-1.1-3.4-3 0-2.4 2.4-4.8 5.6-4.8z"/></svg></span>
       <span class="paw p2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><ellipse cx="5.6" cy="10.1" rx="1.9" ry="2.5" transform="rotate(-18 5.6 10.1)"/><ellipse cx="9.9" cy="7.3" rx="2" ry="2.75" transform="rotate(-7 9.9 7.3)"/><ellipse cx="14.4" cy="7.3" rx="2" ry="2.75" transform="rotate(7 14.4 7.3)"/><ellipse cx="18.5" cy="10.1" rx="1.9" ry="2.5" transform="rotate(18 18.5 10.1)"/><path d="M12 12.5c3.2 0 5.6 2.4 5.6 4.8 0 1.9-1.5 3-3.4 3-1.1 0-1.6-.4-2.2-.4s-1.1.4-2.2.4c-1.9 0-3.4-1.1-3.4-3 0-2.4 2.4-4.8 5.6-4.8z"/></svg></span>
@@ -432,22 +434,11 @@
     <div class="hero-content">
       <span class="wordmark">Pet Waste Wagon</span>
       <h1>We Scoop the Poop<br>You Enjoy Your Yard</h1>
-      <a class="bone-cta" href="quote.html">
-        <svg viewBox="0 0 360 120" aria-hidden="true">
-          <!-- brown outline layer: same shapes, grown by the stroke width -->
-          <g fill="var(--brown)">
-            <rect x="23" y="20" width="314" height="80" rx="16"/>
-            <circle cx="30" cy="28" r="33"/><circle cx="30" cy="92" r="33"/>
-            <circle cx="330" cy="28" r="33"/><circle cx="330" cy="92" r="33"/>
-          </g>
-          <!-- cream fill layer -->
-          <g fill="var(--bone)">
-            <rect x="28" y="25" width="304" height="70" rx="12"/>
-            <circle cx="30" cy="28" r="28"/><circle cx="30" cy="92" r="28"/>
-            <circle cx="330" cy="28" r="28"/><circle cx="330" cy="92" r="28"/>
-          </g>
-        </svg>
-        <span>Get a free quote</span>
+      <!-- the real illustrated bone+dog asset from the VA's Canva export; its
+           baked background is #C6E9FC, within ~1.5% of the hero's --sky, so it
+           sits on the band without a visible edge -->
+      <a class="bone-cta" href="quote.html" aria-label="Get a free quote">
+        <img src="images/hero-bone-cta.jpg" alt="Get a free quote">
       </a>
     </div>
   </div>
@@ -536,7 +527,7 @@
       <div class="why-figure">
         <div class="why-photo">
           <span class="why-blob"></span>
-          <img src="https://placedog.net/700/700?id=2" alt="Happy dog enjoying a clean yard" loading="lazy">
+          <img src="images/dog-golden-head.png" alt="Golden retriever enjoying a clean yard" loading="lazy">
           <span class="sparkle s1"></span><span class="sparkle s2"></span><span class="sparkle s3"></span>
           <span class="sparkle s4"></span><span class="sparkle s5"></span>
         </div>
@@ -606,7 +597,7 @@
     <div class="choose-right">
       <h2>WHY<span class="accent">CHOOSE US?</span></h2>
       <div class="choose-photo">
-        <img src="https://placedog.net/700/900?id=10" alt="Happy dog, one of the pups on our route" loading="lazy">
+        <img src="images/dog-bandana.png" alt="Golden retriever in a bandana on our Charlotte route" loading="lazy">
       </div>
     </div>
   </div>
@@ -710,6 +701,13 @@
 
 <section class="faq" id="faq">
   <div class="wrap">
+    <div class="breed-row" aria-hidden="true">
+      <img src="images/breed-husky.png" alt="" loading="lazy">
+      <img src="images/breed-dalmatian.png" alt="" loading="lazy">
+      <img src="images/breed-golden.png" alt="" loading="lazy">
+      <img src="images/breed-sheepdog.png" alt="" loading="lazy">
+      <img src="images/breed-frenchie.png" alt="" loading="lazy">
+    </div>
     <h2>GOT <span class="accent">QUESTIONS?</span></h2>
     <div class="faq-list">
       <details>
