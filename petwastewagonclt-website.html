@@ -167,15 +167,20 @@
   @media(max-width:900px){ .why .wrap{grid-template-columns:1fr;} }
   /* organic teal blob with the photo clipped to the same shape, plus white
      "sparkle" ticks and two oversized paws — all lifted from the reference */
-  .why-photo{position:relative; width:100%; max-width:330px; aspect-ratio:1/1; margin:0 auto;}
+  /* the paws live in .why-figure (not .why-photo) so they sit on the sky below
+     the blob instead of being clipped by / overlapping the photo */
+  .why-figure{position:relative; width:100%; max-width:330px; margin:0 auto; padding-bottom:58px;}
+  .why-photo{position:relative; width:100%; aspect-ratio:1/1;}
+  /* blob and photo use different radii AND opposite rotations on purpose — if
+     they match, the blob reads as a uniform ring rather than a shape behind */
   .why-blob{
     position:absolute; inset:0; background:var(--teal);
-    border-radius:58% 42% 45% 55% / 50% 48% 52% 50%; transform:rotate(-4deg);
+    border-radius:62% 38% 44% 56% / 46% 52% 48% 54%; transform:rotate(-8deg);
   }
   .why-photo img{
-    position:absolute; left:7%; top:5%; width:86%; height:86%;
-    object-fit:cover; display:block; transform:rotate(-4deg);
-    border-radius:58% 42% 45% 55% / 50% 48% 52% 50%;
+    position:absolute; left:9%; top:6%; width:84%; height:84%;
+    object-fit:cover; display:block; transform:rotate(3deg);
+    border-radius:54% 46% 50% 50% / 52% 46% 54% 48%;
   }
   .sparkle{position:absolute; background:#fff; border-radius:4px; width:5px; height:19px;}
   .sparkle.s1{left:13%; top:9%; transform:rotate(-30deg);}
@@ -185,8 +190,8 @@
   .sparkle.s5{right:14%; top:10%; transform:rotate(34deg);}
   .why-paw{position:absolute; color:var(--teal);}
   .why-paw svg{width:100%; height:auto; display:block;}
-  .why-paw.w1{width:23%; left:-7%; bottom:9%;}
-  .why-paw.w2{width:27%; left:37%; bottom:-11%;}
+  .why-paw.w1{width:20%; left:-2%; bottom:34px;}
+  .why-paw.w2{width:24%; left:23%; bottom:-4px;}
   /* the reference sets this label in the rounded display face, oversized and
      tilted — it reads as a hand-lettered section marker, not a small eyebrow */
   .why .eyebrow.wavy{
@@ -525,11 +530,13 @@
   <div class="wrap">
     <div class="why-left">
       <span class="eyebrow wavy">WHY IT MATTERS</span>
-      <div class="why-photo">
-        <span class="why-blob"></span>
-        <img src="https://placedog.net/700/700?id=2" alt="Happy dog enjoying a clean yard" loading="lazy">
-        <span class="sparkle s1"></span><span class="sparkle s2"></span><span class="sparkle s3"></span>
-        <span class="sparkle s4"></span><span class="sparkle s5"></span>
+      <div class="why-figure">
+        <div class="why-photo">
+          <span class="why-blob"></span>
+          <img src="https://placedog.net/700/700?id=2" alt="Happy dog enjoying a clean yard" loading="lazy">
+          <span class="sparkle s1"></span><span class="sparkle s2"></span><span class="sparkle s3"></span>
+          <span class="sparkle s4"></span><span class="sparkle s5"></span>
+        </div>
         <span class="why-paw w1"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><ellipse cx="5.6" cy="10.1" rx="1.9" ry="2.5" transform="rotate(-18 5.6 10.1)"/><ellipse cx="9.9" cy="7.3" rx="2" ry="2.75" transform="rotate(-7 9.9 7.3)"/><ellipse cx="14.4" cy="7.3" rx="2" ry="2.75" transform="rotate(7 14.4 7.3)"/><ellipse cx="18.5" cy="10.1" rx="1.9" ry="2.5" transform="rotate(18 18.5 10.1)"/><path d="M12 12.5c3.2 0 5.6 2.4 5.6 4.8 0 1.9-1.5 3-3.4 3-1.1 0-1.6-.4-2.2-.4s-1.1.4-2.2.4c-1.9 0-3.4-1.1-3.4-3 0-2.4 2.4-4.8 5.6-4.8z"/></svg></span>
         <span class="why-paw w2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><ellipse cx="5.6" cy="10.1" rx="1.9" ry="2.5" transform="rotate(-18 5.6 10.1)"/><ellipse cx="9.9" cy="7.3" rx="2" ry="2.75" transform="rotate(-7 9.9 7.3)"/><ellipse cx="14.4" cy="7.3" rx="2" ry="2.75" transform="rotate(7 14.4 7.3)"/><ellipse cx="18.5" cy="10.1" rx="1.9" ry="2.5" transform="rotate(18 18.5 10.1)"/><path d="M12 12.5c3.2 0 5.6 2.4 5.6 4.8 0 1.9-1.5 3-3.4 3-1.1 0-1.6-.4-2.2-.4s-1.1.4-2.2.4c-1.9 0-3.4-1.1-3.4-3 0-2.4 2.4-4.8 5.6-4.8z"/></svg></span>
       </div>
