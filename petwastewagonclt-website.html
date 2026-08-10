@@ -140,25 +140,25 @@
   .trail-section h2 .accent{color:var(--blue);}
   .trail-steps{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
   @media(max-width:760px){ .trail-steps{grid-template-columns:1fr;} }
-  .step{background:var(--white); border:2px solid var(--slate-blue); border-radius:14px; padding:30px 26px; position:relative;}
-  .step-icon{
-    position:relative; width:70px; height:70px; border-radius:50%;
-    background:var(--blue); display:flex; align-items:center; justify-content:center; margin-bottom:20px;
+  /* Cards are centre-aligned with an oversized illustration on top, a number
+     badge overlapping the art's top-right, and a short rule under the title —
+     matching the reference rather than the small left-aligned icon chips. */
+  .step{
+    background:var(--white); border:2px solid var(--slate-blue); border-radius:16px;
+    padding:34px 26px 38px; position:relative; text-align:center;
+    display:flex; flex-direction:column; align-items:center;
   }
-  .step-icon > svg{width:34px; height:34px; color:#fff;}
+  .step-visual{position:relative; width:100%; max-width:210px; aspect-ratio:1/1; margin-bottom:14px;}
+  .step-visual > svg{width:100%; height:100%; display:block;}
   .step-num{
-    position:absolute; top:-6px; right:-6px; width:26px; height:26px; border-radius:50%;
-    background:var(--slate-blue); color:#fff; font-family:'Baloo 2',sans-serif; font-size:0.8rem; font-weight:700;
-    display:flex; align-items:center; justify-content:center; border:2px solid #fff;
+    position:absolute; top:4%; right:2%; width:33%; max-width:70px; aspect-ratio:1/1; border-radius:50%;
+    background:var(--blue); color:#fff; font-family:'Baloo 2',sans-serif;
+    font-size:clamp(1.2rem,3vw,1.75rem); font-weight:700;
+    display:flex; align-items:center; justify-content:center;
   }
-  .step h3{font-size:1.2rem; margin-bottom:8px; color:var(--ink);}
-  .step p{font-size:0.95rem; color:var(--slate);}
-  .guarantee-badge{
-    display:inline-flex; align-items:center; gap:5px; margin-top:14px;
-    background:var(--sky); color:var(--slate-blue); font-family:'Baloo 2',sans-serif; font-size:0.85rem; font-weight:700;
-    padding:7px 14px; border-radius:20px; text-decoration:none;
-  }
-  .guarantee-badge:hover{background:var(--sky-deep);}
+  .step h3{font-size:clamp(1.25rem,2.4vw,1.6rem); margin-bottom:0; color:var(--ink);}
+  .step-rule{display:block; width:92px; height:4px; border-radius:2px; background:var(--slate-blue); margin:16px auto 18px;}
+  .step p{font-size:1rem; color:var(--ink); max-width:30ch;}
 
   /* WHY IT MATTERS */
   .why{padding:110px 0; background:var(--sky); position:relative; overflow:hidden;}
@@ -430,41 +430,64 @@
     <h2>A Clean Yard <span class="accent">in 3 Simple Steps</span></h2>
     <div class="trail-steps">
       <div class="step">
-        <div class="step-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="4.5" y="3.5" width="15" height="18" rx="2.4"/>
-            <path d="M8.5 2.5h7v2.6h-7z"/>
-            <path d="M8 11.5h8M8 15.5h5"/>
+        <div class="step-visual">
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <circle cx="92" cy="110" r="76" fill="var(--blue)"/>
+            <g transform="translate(52,70) scale(3.4)" fill="#E6E6E6">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </g>
+            <g fill="none" stroke="#111" stroke-width="7" stroke-linecap="round">
+              <path d="M116 92a15 15 0 0 1 10 14"/>
+              <path d="M124 76a31 31 0 0 1 20 29"/>
+              <path d="M132 60a47 47 0 0 1 30 44"/>
+            </g>
           </svg>
           <span class="step-num">1</span>
         </div>
         <h3>Get a Free Quote</h3>
+        <span class="step-rule"></span>
         <p>Tell us how many dogs you have and how often you'd like service.</p>
       </div>
       <div class="step">
-        <div class="step-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M5.6 9.6h12.1a1.9 1.9 0 0 1 1.9 1.9v3a1.9 1.9 0 0 1-1.9 1.9H5.6a1.9 1.9 0 0 1-1.9-1.9v-3a1.9 1.9 0 0 1 1.9-1.9z"/>
-            <path d="M3.9 9.4C2.7 8.2 3 6.1 4.9 5.4"/>
-            <circle cx="8" cy="19.5" r="1.9"/>
-            <circle cx="15.4" cy="19.5" r="1.9"/>
+        <div class="step-visual">
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <g stroke="var(--slate-blue)" stroke-width="9" stroke-linejoin="round" stroke-linecap="round">
+              <path d="M30 128 L104 90 L142 126 L68 164 Z" fill="#BBDEF7"/>
+              <path d="M104 90 L118 76" fill="none"/>
+              <path d="M118 76a22 22 0 1 1 34 26 L142 126" fill="none"/>
+            </g>
           </svg>
           <span class="step-num">2</span>
         </div>
         <h3>We Scoop the Yard</h3>
+        <span class="step-rule"></span>
         <p>We arrive on schedule, clean your yard, and haul the waste away.</p>
       </div>
       <div class="step">
-        <div class="step-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M4 20l3-9 5-6 5 6 3 9z"/>
-            <path d="M9 20v-6h6v6"/>
+        <div class="step-visual">
+          <!-- flat stand-in for the reference's watercolour greenhouse illustration
+               (that asset is a raster export from Canva and can't be re-drawn here) -->
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <ellipse cx="100" cy="172" rx="86" ry="13" fill="#D6EFCF"/>
+            <circle cx="38" cy="104" r="30" fill="#7CC47F"/>
+            <circle cx="24" cy="128" r="22" fill="#57A85F"/>
+            <circle cx="164" cy="108" r="28" fill="#7CC47F"/>
+            <circle cx="178" cy="132" r="20" fill="#57A85F"/>
+            <path d="M60 166 V106 L100 72 L140 106 V166 Z" fill="#DDF1FB" stroke="#7FAEC7" stroke-width="4" stroke-linejoin="round"/>
+            <g stroke="#7FAEC7" stroke-width="3.4" fill="none">
+              <path d="M100 72 V166 M60 106 H140 M60 136 H140"/>
+            </g>
+            <rect x="88" y="134" width="24" height="32" fill="#BFE2F2" stroke="#7FAEC7" stroke-width="3"/>
+            <circle cx="54" cy="160" r="8" fill="#F49AC1"/>
+            <circle cx="150" cy="160" r="8" fill="#F49AC1"/>
+            <circle cx="70" cy="167" r="7" fill="#7CC47F"/>
+            <circle cx="134" cy="167" r="7" fill="#7CC47F"/>
           </svg>
           <span class="step-num">3</span>
         </div>
         <h3>Enjoy Your Clean Yard</h3>
-        <p>Relax and let your pups enjoy a fresh, clean yard every visit.</p>
-        <a href="#faq" class="guarantee-badge">Guaranteed clean →</a>
+        <span class="step-rule"></span>
+        <p>Relax and let your pups enjoy a fresh, clean yard every week.</p>
       </div>
     </div>
   </div>
