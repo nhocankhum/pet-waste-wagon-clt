@@ -91,7 +91,9 @@
     position:relative; background:var(--sky); border-radius:999px 999px 12px 12px; overflow:hidden;
     aspect-ratio:4/5;
   }
-  .about-art .photo img{width:100%; height:100%; object-fit:cover; display:block;}
+  /* contain, not cover: these are background-removed cutouts, so cropping them
+     to fill the arch would slice the dog off */
+  .about-art .photo img{width:100%; height:100%; object-fit:contain; object-position:center bottom; display:block;}
   .about-art .bone-deco{position:absolute; top:-28px; left:6%; width:38%; color:var(--slate-blue);}
   .about-art .bone-deco svg{width:100%; height:auto; display:block;}
   .about-art .paw{position:absolute; width:14%; color:var(--slate-blue);}
@@ -130,9 +132,9 @@
     position:absolute; inset:0; background:var(--periwinkle);
     border-radius:56% 44% 47% 53% / 52% 46% 54% 48%; transform:rotate(-6deg);
   }
+  /* cutouts sit on the blob unclipped so the periwinkle shows around the dog */
   .blob-photo img{
-    position:absolute; left:8%; top:10%; width:84%; height:84%;
-    object-fit:cover; border-radius:50%; display:block;
+    position:absolute; left:11%; bottom:3%; width:78%; height:auto; display:block;
   }
 
   /* OUR PROMISE */
@@ -224,7 +226,7 @@
         </svg>
       </span>
       <div class="photo">
-        <img src="https://placedog.net/700/900?id=31" alt="Happy dog on a Pet Waste Wagon route" loading="eager">
+        <img src="images/dog-puppy-white.png" alt="Happy dog on a Pet Waste Wagon route" loading="eager">
       </div>
       <span class="paw a1"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><ellipse cx="5.6" cy="10.1" rx="1.9" ry="2.5" transform="rotate(-18 5.6 10.1)"/><ellipse cx="9.9" cy="7.3" rx="2" ry="2.75" transform="rotate(-7 9.9 7.3)"/><ellipse cx="14.4" cy="7.3" rx="2" ry="2.75" transform="rotate(7 14.4 7.3)"/><ellipse cx="18.5" cy="10.1" rx="1.9" ry="2.5" transform="rotate(18 18.5 10.1)"/><path d="M12 12.5c3.2 0 5.6 2.4 5.6 4.8 0 1.9-1.5 3-3.4 3-1.1 0-1.6-.4-2.2-.4s-1.1.4-2.2.4c-1.9 0-3.4-1.1-3.4-3 0-2.4 2.4-4.8 5.6-4.8z"/></svg></span>
       <span class="paw a2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><ellipse cx="5.6" cy="10.1" rx="1.9" ry="2.5" transform="rotate(-18 5.6 10.1)"/><ellipse cx="9.9" cy="7.3" rx="2" ry="2.75" transform="rotate(-7 9.9 7.3)"/><ellipse cx="14.4" cy="7.3" rx="2" ry="2.75" transform="rotate(7 14.4 7.3)"/><ellipse cx="18.5" cy="10.1" rx="1.9" ry="2.5" transform="rotate(18 18.5 10.1)"/><path d="M12 12.5c3.2 0 5.6 2.4 5.6 4.8 0 1.9-1.5 3-3.4 3-1.1 0-1.6-.4-2.2-.4s-1.1.4-2.2.4c-1.9 0-3.4-1.1-3.4-3 0-2.4 2.4-4.8 5.6-4.8z"/></svg></span>
@@ -252,7 +254,7 @@
     </div>
     <div class="blob-photo">
       <span class="blob"></span>
-      <img src="https://placedog.net/700/700?id=3" alt="Golden retriever enjoying a clean yard" loading="lazy">
+      <img src="images/dog-sitting.png" alt="Golden retriever enjoying a clean yard" loading="lazy">
     </div>
   </div>
 </section>
@@ -263,7 +265,7 @@
   <div class="wrap">
     <div class="blob-photo">
       <span class="blob"></span>
-      <img src="https://placedog.net/700/700?id=2" alt="Happy dog on our Charlotte route" loading="lazy">
+      <img src="images/dog-lab.png" alt="Happy dog on our Charlotte route" loading="lazy">
     </div>
     <div>
       <h2>Our <span class="accent">Promise</span></h2>
