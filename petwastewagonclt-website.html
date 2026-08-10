@@ -19,6 +19,7 @@
     --sky: #C2E9FF;          /* sky-blue section background */
     --sky-deep: #A9DCFA;     /* slightly deeper sky — icon circles, hovers */
     --periwinkle: #88ACE7;   /* hero blob, light paw */
+    --teal: #458AAC;         /* Why It Matters blob + paws */
     --slate-blue: #37578D;   /* hero headline, dark blob, paws, card outlines */
     --blue: #1F80FF;         /* bright accent — headings accent, step icons, prices */
     --footer-navy: #00357A;  /* footer background */
@@ -162,10 +163,30 @@
 
   /* WHY IT MATTERS */
   .why{padding:110px 0; background:var(--sky); position:relative; overflow:hidden;}
-  .why .wrap{display:grid; grid-template-columns:0.9fr 1.4fr; gap:44px; align-items:start;}
+  .why .wrap{display:grid; grid-template-columns:0.85fr 1.45fr; gap:44px; align-items:center;}
   @media(max-width:900px){ .why .wrap{grid-template-columns:1fr;} }
-  .why-photo{position:relative; width:100%; max-width:340px;}
-  .why-photo img{width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:50%; display:block; border:6px solid var(--white);}
+  /* organic teal blob with the photo clipped to the same shape, plus white
+     "sparkle" ticks and two oversized paws — all lifted from the reference */
+  .why-photo{position:relative; width:100%; max-width:330px; aspect-ratio:1/1; margin:0 auto;}
+  .why-blob{
+    position:absolute; inset:0; background:var(--teal);
+    border-radius:58% 42% 45% 55% / 50% 48% 52% 50%; transform:rotate(-4deg);
+  }
+  .why-photo img{
+    position:absolute; left:7%; top:5%; width:86%; height:86%;
+    object-fit:cover; display:block; transform:rotate(-4deg);
+    border-radius:58% 42% 45% 55% / 50% 48% 52% 50%;
+  }
+  .sparkle{position:absolute; background:#fff; border-radius:4px; width:5px; height:19px;}
+  .sparkle.s1{left:13%; top:9%; transform:rotate(-30deg);}
+  .sparkle.s2{left:25%; top:1%; transform:rotate(-12deg);}
+  .sparkle.s3{left:38%; top:-2%; transform:rotate(3deg);}
+  .sparkle.s4{right:26%; top:2%; transform:rotate(20deg);}
+  .sparkle.s5{right:14%; top:10%; transform:rotate(34deg);}
+  .why-paw{position:absolute; color:var(--teal);}
+  .why-paw svg{width:100%; height:auto; display:block;}
+  .why-paw.w1{width:23%; left:-7%; bottom:9%;}
+  .why-paw.w2{width:27%; left:37%; bottom:-11%;}
   /* the reference sets this label in the rounded display face, oversized and
      tilted — it reads as a hand-lettered section marker, not a small eyebrow */
   .why .eyebrow.wavy{
@@ -174,12 +195,14 @@
     margin-bottom:26px; letter-spacing:0.04em;
   }
   .why-sub{font-size:clamp(1.4rem,2.6vw,1.75rem); color:var(--slate-blue); font-family:'Baloo 2',sans-serif; font-weight:700; margin-bottom:28px;}
-  .why-grid{display:grid; grid-template-columns:1fr; gap:16px;}
-  .why-card{background:var(--white); border:2px solid var(--slate-blue); border-radius:12px; padding:18px 20px; display:flex; gap:14px; align-items:flex-start;}
-  .why-card .ico-circle{width:44px; height:44px; border-radius:50%; background:var(--sky-deep); flex-shrink:0; display:flex; align-items:center; justify-content:center;}
-  .why-card .ico-circle svg{width:24px; height:24px; color:var(--blue);}
-  .why-card h3{font-size:1.05rem; margin-bottom:4px; color:var(--ink); font-family:'Baloo 2',sans-serif;}
-  .why-card p{font-size:0.9rem; color:var(--slate);}
+  .why-grid{display:grid; grid-template-columns:1fr; gap:12px;}
+  .why-card{border-radius:14px; padding:18px 22px; display:flex; gap:18px; align-items:center;}
+  /* the reference alternates: boxed white card, then one sitting bare on the sky */
+  .why-card:nth-child(odd){background:var(--white); border:2px solid var(--slate-blue);}
+  .why-card:nth-child(even){background:transparent; border:2px solid transparent;}
+  .why-card .ico{width:58px; height:58px; flex-shrink:0; display:block;}
+  .why-card h3{font-size:1.3rem; margin-bottom:2px; color:var(--ink); font-family:'Baloo 2',sans-serif;}
+  .why-card p{font-size:1rem; color:var(--ink);}
 
   /* WHY CHOOSE US */
   .choose{padding:90px 0; background:var(--white);}
@@ -503,26 +526,59 @@
     <div class="why-left">
       <span class="eyebrow wavy">WHY IT MATTERS</span>
       <div class="why-photo">
+        <span class="why-blob"></span>
         <img src="https://placedog.net/700/700?id=2" alt="Happy dog enjoying a clean yard" loading="lazy">
+        <span class="sparkle s1"></span><span class="sparkle s2"></span><span class="sparkle s3"></span>
+        <span class="sparkle s4"></span><span class="sparkle s5"></span>
+        <span class="why-paw w1"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><ellipse cx="5.6" cy="10.1" rx="1.9" ry="2.5" transform="rotate(-18 5.6 10.1)"/><ellipse cx="9.9" cy="7.3" rx="2" ry="2.75" transform="rotate(-7 9.9 7.3)"/><ellipse cx="14.4" cy="7.3" rx="2" ry="2.75" transform="rotate(7 14.4 7.3)"/><ellipse cx="18.5" cy="10.1" rx="1.9" ry="2.5" transform="rotate(18 18.5 10.1)"/><path d="M12 12.5c3.2 0 5.6 2.4 5.6 4.8 0 1.9-1.5 3-3.4 3-1.1 0-1.6-.4-2.2-.4s-1.1.4-2.2.4c-1.9 0-3.4-1.1-3.4-3 0-2.4 2.4-4.8 5.6-4.8z"/></svg></span>
+        <span class="why-paw w2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><ellipse cx="5.6" cy="10.1" rx="1.9" ry="2.5" transform="rotate(-18 5.6 10.1)"/><ellipse cx="9.9" cy="7.3" rx="2" ry="2.75" transform="rotate(-7 9.9 7.3)"/><ellipse cx="14.4" cy="7.3" rx="2" ry="2.75" transform="rotate(7 14.4 7.3)"/><ellipse cx="18.5" cy="10.1" rx="1.9" ry="2.5" transform="rotate(18 18.5 10.1)"/><path d="M12 12.5c3.2 0 5.6 2.4 5.6 4.8 0 1.9-1.5 3-3.4 3-1.1 0-1.6-.4-2.2-.4s-1.1.4-2.2.4c-1.9 0-3.4-1.1-3.4-3 0-2.4 2.4-4.8 5.6-4.8z"/></svg></span>
       </div>
     </div>
     <div>
       <h2 class="why-sub">A Cleaner Yard. A Better Home.</h2>
       <div class="why-grid">
         <div class="why-card">
-          <span class="ico-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.2-2.9 7.8-7 8.5-4.1-.7-7-4.3-7-8.5V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <svg class="ico" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M32 4 56 13v20c0 14-10 24.5-24 27C18 57.5 8 47 8 33V13z" fill="#94C4D4"/>
+            <path d="M32 9.5 51 16.5v16.5C51 44.5 43 53 32 55.5 21 53 13 44.5 13 33V16.5z" fill="#4984D2"/>
+            <path d="M28.4 20h7.2v7.2h7.2v7.2h-7.2v7.2h-7.2v-7.2h-7.2v-7.2h7.2z" fill="#fff"/>
+          </svg>
           <div><h3>Keeps Your Family Safe</h3><p>Dog waste can carry harmful bacteria and parasites like roundworm, giardia, E. coli.</p></div>
         </div>
         <div class="why-card">
-          <span class="ico-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21v-8"/><path d="M12 13c0-4 2.6-7.2 7-7.6.4 4.6-2.4 7.6-7 7.6z"/><path d="M12 16c-3.6 0-6-2.4-6.4-6C9 10.3 11.4 12.4 12 16z"/></svg></span>
+          <svg class="ico" viewBox="0 0 64 64" aria-hidden="true">
+            <ellipse cx="32" cy="53" rx="21" ry="4.5" fill="#F3C48A"/>
+            <g stroke="#111" stroke-width="2" stroke-linejoin="round">
+              <path d="M32 25c-4-6-2.5-14 1.5-18 4 6 3 14-1.5 18z" fill="#9CC042"/>
+              <path d="M32 31c-9.5 0-15.5-5.5-15.5-11.5 7.5 0 14.5 3.5 15.5 11.5z" fill="#9CC042"/>
+              <path d="M32 31c9.5 0 15.5-5.5 15.5-11.5-7.5 0-14.5 3.5-15.5 11.5z" fill="#7FA836"/>
+              <path d="M32 43c-8 0-13-4.5-13-9.5 6.5 0 12 3 13 9.5z" fill="#9CC042"/>
+              <path d="M32 43c8 0 13-4.5 13-9.5-6.5 0-12 3-13 9.5z" fill="#7FA836"/>
+            </g>
+            <path d="M32 53V24" stroke="#111" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+          </svg>
           <div><h3>Protects Your Lawn</h3><p>Left too long, pet waste can damage grass and leave ugly brown patches.</p></div>
         </div>
         <div class="why-card">
-          <span class="ico-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10a3 3 0 1 0-3-3"/><path d="M3 12h14a3 3 0 1 1-3 3"/><path d="M3 16h7"/></svg></span>
+          <svg class="ico" viewBox="0 0 64 64" aria-hidden="true">
+            <g fill="none" stroke="#9CC042" stroke-width="4" stroke-linecap="round">
+              <path d="M32 57c-6-10 6-16 0-26-5-8 2-16 0-23"/>
+              <path d="M19 55c-4-8 4-12 0-20-3-6 2-12 0-16"/>
+              <path d="M45 55c-4-8 4-12 0-20-3-6 2-12 0-16"/>
+            </g>
+          </svg>
           <div><h3>Eliminates Odors</h3><p>No more unpleasant smells when you open the back door or invite friends over.</p></div>
         </div>
         <div class="why-card">
-          <span class="ico-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5l3.4 2"/></svg></span>
+          <svg class="ico" viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="32" r="26" fill="#63718C"/>
+            <circle cx="32" cy="32" r="20.5" fill="#FDFCFD"/>
+            <g stroke="#8FA2C4" stroke-width="2" stroke-linecap="round">
+              <path d="M32 15v3.6M32 45.4V49M15 32h3.6M45.4 32H49"/>
+            </g>
+            <path d="M32 32V20.5M32 32l8.5 5" stroke="#2A3550" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+            <circle cx="32" cy="32" r="2.6" fill="#2A3550"/>
+          </svg>
           <div><h3>More Time With Your Dogs</h3><p>Spend less time scooping and more time playing, relaxing, and making memories with your pups.</p></div>
         </div>
       </div>
