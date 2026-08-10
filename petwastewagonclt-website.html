@@ -166,18 +166,21 @@
   /* the paws live in .why-figure (not .why-photo) so they sit on the sky below
      the blob instead of being clipped by / overlapping the photo */
   .why-figure{position:relative; width:100%; max-width:330px; margin:0 auto; padding-bottom:76px;}
-  .why-photo{position:relative; width:100%; aspect-ratio:1/1;}
-  /* blob and photo use different radii AND opposite rotations on purpose — if
-     they match, the blob reads as a uniform ring rather than a shape behind */
-  .why-blob{
-    position:absolute; inset:0; background:var(--teal);
-    border-radius:62% 38% 44% 56% / 46% 52% 48% 54%; transform:rotate(-8deg);
+  /* The blob IS the photo frame: it carries the teal fill, the organic radius
+     and the tilt, and clips its contents. The cutout PNG has a hard flat bottom
+     edge (it's a head-and-chest crop), so it's sized to overflow the bottom and
+     let the blob's curve cut it — otherwise that straight edge shows as a line
+     across the dog. The image counter-rotates so the dog stays upright. */
+  .why-photo{
+    position:relative; width:100%; aspect-ratio:1/1;
+    background:var(--teal);
+    border-radius:62% 38% 44% 56% / 46% 52% 48% 54%;
+    transform:rotate(-8deg);
+    overflow:hidden;
   }
-  /* this is a background-removed cutout, so it is NOT clipped — it sits on the
-     blob and the teal shows through around the dog's silhouette, as in the
-     reference. Don't add border-radius/object-fit here or it re-crops the PNG. */
   .why-photo img{
-    position:absolute; left:7%; top:9%; width:86%; height:auto; display:block;
+    position:absolute; left:5%; top:13%; width:92%; height:auto; display:block;
+    transform:rotate(8deg); transform-origin:center center;
   }
   .sparkle{position:absolute; background:#fff; border-radius:4px; width:5px; height:19px;}
   .sparkle.s1{left:13%; top:9%; transform:rotate(-30deg);}
@@ -397,7 +400,9 @@
     .bone-cta{width:250px;}
 
     .trail-section{padding:52px 0 60px;}
-    .trail-section .wrap > h2{margin-bottom:28px;}
+    /* the clamp floor is too big at 375px — "Steps" drops to a line alone */
+    .trail-section .wrap > h2{font-size:1.5rem; margin-bottom:28px;}
+    .services .wrap > h2, .faq h2, .area h2, .choose h2{font-size:1.55rem;}
     .trail-steps{gap:18px;}
     .step{padding:24px 20px 28px;}
     .step-visual{max-width:148px; margin-bottom:8px;}
@@ -589,11 +594,10 @@
       <span class="eyebrow wavy">WHY IT MATTERS</span>
       <div class="why-figure">
         <div class="why-photo">
-          <span class="why-blob"></span>
           <img src="images/dog-golden-head.png" alt="Golden retriever enjoying a clean yard" loading="lazy">
-          <span class="sparkle s1"></span><span class="sparkle s2"></span><span class="sparkle s3"></span>
-          <span class="sparkle s4"></span><span class="sparkle s5"></span>
         </div>
+        <span class="sparkle s1"></span><span class="sparkle s2"></span><span class="sparkle s3"></span>
+        <span class="sparkle s4"></span><span class="sparkle s5"></span>
         <span class="why-paw w1"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><ellipse cx="5.6" cy="10.1" rx="1.9" ry="2.5" transform="rotate(-18 5.6 10.1)"/><ellipse cx="9.9" cy="7.3" rx="2" ry="2.75" transform="rotate(-7 9.9 7.3)"/><ellipse cx="14.4" cy="7.3" rx="2" ry="2.75" transform="rotate(7 14.4 7.3)"/><ellipse cx="18.5" cy="10.1" rx="1.9" ry="2.5" transform="rotate(18 18.5 10.1)"/><path d="M12 12.5c3.2 0 5.6 2.4 5.6 4.8 0 1.9-1.5 3-3.4 3-1.1 0-1.6-.4-2.2-.4s-1.1.4-2.2.4c-1.9 0-3.4-1.1-3.4-3 0-2.4 2.4-4.8 5.6-4.8z"/></svg></span>
         <span class="why-paw w2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><ellipse cx="5.6" cy="10.1" rx="1.9" ry="2.5" transform="rotate(-18 5.6 10.1)"/><ellipse cx="9.9" cy="7.3" rx="2" ry="2.75" transform="rotate(-7 9.9 7.3)"/><ellipse cx="14.4" cy="7.3" rx="2" ry="2.75" transform="rotate(7 14.4 7.3)"/><ellipse cx="18.5" cy="10.1" rx="1.9" ry="2.5" transform="rotate(18 18.5 10.1)"/><path d="M12 12.5c3.2 0 5.6 2.4 5.6 4.8 0 1.9-1.5 3-3.4 3-1.1 0-1.6-.4-2.2-.4s-1.1.4-2.2.4c-1.9 0-3.4-1.1-3.4-3 0-2.4 2.4-4.8 5.6-4.8z"/></svg></span>
       </div>
