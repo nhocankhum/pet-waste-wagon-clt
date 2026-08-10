@@ -100,8 +100,14 @@
   .about-art .paw svg{width:100%; height:auto; display:block;}
   .about-hero h1{font-size:clamp(2rem,4.2vw,2.8rem); margin-bottom:18px;}
   .about-hero h1 .accent{color:var(--blue);}
-  .about-lead{font-family:'Baloo 2',sans-serif; font-weight:700; font-size:clamp(1.35rem,2.6vw,1.75rem); color:var(--slate-blue); margin-bottom:22px;}
   .about-hero p{font-size:1.05rem; color:var(--ink); max-width:46ch; margin-bottom:14px;}
+  /* declared after (and matched more specifically than) .about-hero p, which
+     would otherwise win on specificity and flatten the lead back to body size */
+  .about-hero p.about-lead{
+    font-family:'Baloo 2',sans-serif; font-weight:700;
+    font-size:clamp(1.35rem,2.6vw,1.75rem); color:var(--slate-blue);
+    margin-bottom:22px; max-width:none; line-height:1.25;
+  }
   .about-hero p strong{color:var(--slate-blue);}
 
   /* WHAT WE STAND FOR */
