@@ -1,3 +1,9 @@
+[build]
+  # Serverless functions live here. The one that matters is
+  # submission-created.js — Netlify runs it automatically on every accepted
+  # form submission (the filename IS the event hook; don't rename it).
+  functions = "netlify/functions"
+
 [[redirects]]
 from = "/"
 to = "/petwastewagonclt-website.html"
