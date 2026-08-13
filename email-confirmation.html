@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pet Waste Wagon — Request Confirmation</title>
+</head>
+<!--
+  CONFIRMATION EMAIL TEMPLATE — Pet Waste Wagon
+  ---------------------------------------------------------------------------
+  Built with table layout + inline styles on purpose. Gmail strips <style>
+  blocks in some clients and Outlook (Word rendering engine) ignores most
+  modern CSS — flexbox/grid/classes are not safe here. Anything that looks
+  "old fashioned" below is deliberate.
+
+  Placeholders to replace before sending:
+    {{NAME}}         first name
+    {{NEIGHBORHOOD}} address / neighbourhood they gave
+    {{DOGS}}         dog count
+    {{SERVICE}}      Weekly / Bi-Weekly / One-Time Deep Clean
+    {{PHONE}}        the phone they gave (where the price gets texted)
+
+  Colours match the live site: sky #C2E9FF, slate blue #37578D,
+  bright blue #1F80FF, orange #FF751F, footer navy #00357A.
+-->
+<body style="margin:0; padding:0; background-color:#EEF7FE; -webkit-font-smoothing:antialiased;">
+
+  <!-- preheader: shows in the inbox preview line, hidden in the body -->
+  <div style="display:none; max-height:0; overflow:hidden; opacity:0; color:transparent; height:0; width:0;">
+    We've got your request — we'll text your price within a couple hours.
+  </div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#EEF7FE;">
+    <tr>
+      <td align="center" style="padding:24px 12px;">
+
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:100%; background-color:#FFFFFF; border-radius:16px; overflow:hidden; box-shadow:0 6px 18px rgba(27,59,111,0.08);">
+
+          <!-- header -->
+          <tr>
+            <td align="center" style="background-color:#C2E9FF; padding:30px 24px 26px 24px;">
+              <div style="font-family:'Trebuchet MS', Verdana, sans-serif; font-size:24px; font-weight:bold; color:#37578D; letter-spacing:0.2px;">
+                Pet&nbsp;Waste&nbsp;Wagon
+              </div>
+              <div style="font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:bold; color:#634239; letter-spacing:1.4px; text-transform:uppercase; padding-top:6px;">
+                Professional &nbsp;·&nbsp; Reliable &nbsp;·&nbsp; Clean
+              </div>
+            </td>
+          </tr>
+
+          <!-- headline -->
+          <tr>
+            <td style="padding:34px 34px 0 34px;">
+              <h1 style="margin:0 0 12px 0; font-family:'Trebuchet MS', Verdana, sans-serif; font-size:26px; line-height:1.25; color:#1C1C1A; font-weight:bold;">
+                We've got your request, {{NAME}}!
+              </h1>
+              <p style="margin:0; font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:1.6; color:#3A4450;">
+                Thanks for reaching out. Your details are in and we're putting your price together now.
+              </p>
+            </td>
+          </tr>
+
+          <!-- request summary -->
+          <tr>
+            <td style="padding:24px 34px 0 34px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:2px solid #37578D; border-radius:12px;">
+                <tr>
+                  <td style="padding:18px 20px 6px 20px;">
+                    <div style="font-family:Arial, Helvetica, sans-serif; font-size:11px; font-weight:bold; letter-spacing:1.2px; text-transform:uppercase; color:#634239;">
+                      What you told us
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:0 20px 18px 20px;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-family:Arial, Helvetica, sans-serif; font-size:15px; color:#1C1C1A;">
+                      <tr>
+                        <td style="padding:8px 0; border-bottom:1px solid #E2EFFF; color:#55606B; width:42%;">Yard</td>
+                        <td style="padding:8px 0; border-bottom:1px solid #E2EFFF; font-weight:bold; text-align:right;">{{NEIGHBORHOOD}}</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:8px 0; border-bottom:1px solid #E2EFFF; color:#55606B;">Dogs</td>
+                        <td style="padding:8px 0; border-bottom:1px solid #E2EFFF; font-weight:bold; text-align:right;">{{DOGS}}</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:8px 0; color:#55606B;">Service</td>
+                        <td style="padding:8px 0; font-weight:bold; text-align:right;">{{SERVICE}}</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- what happens next -->
+          <tr>
+            <td style="padding:26px 34px 0 34px;">
+              <div style="font-family:'Trebuchet MS', Verdana, sans-serif; font-size:19px; font-weight:bold; color:#37578D; padding-bottom:8px;">
+                What happens next
+              </div>
+              <p style="margin:0 0 10px 0; font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:1.6; color:#3A4450;">
+                We'll text your price to <strong style="color:#1C1C1A;">{{PHONE}}</strong> within a couple hours. Once it looks good to you, we'll send a payment link and get you on the route.
+              </p>
+              <p style="margin:0; font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:1.6; color:#3A4450;">
+                No contracts, cancel anytime, and you'll get a photo of your closed gate after every visit.
+              </p>
+            </td>
+          </tr>
+
+          <!-- CTA -->
+          <tr>
+            <td align="center" style="padding:26px 34px 4px 34px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="center" bgcolor="#FF751F" style="border-radius:999px;">
+                    <a href="tel:+17045599522"
+                       style="display:inline-block; padding:14px 34px; font-family:'Trebuchet MS', Verdana, sans-serif; font-size:16px; font-weight:bold; color:#FFFFFF; text-decoration:none; border-radius:999px;">
+                      Call or text us
+                    </a>
+                  </td>
+                </tr>
+              </table>
+              <p style="margin:12px 0 0 0; font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#55606B;">
+                Questions before then? Just reply to this email.
+              </p>
+            </td>
+          </tr>
+
+          <!-- divider -->
+          <tr>
+            <td style="padding:26px 34px 0 34px;">
+              <div style="height:1px; background-color:#E2EFFF; line-height:1px; font-size:0;">&nbsp;</div>
+            </td>
+          </tr>
+
+          <!-- footer -->
+          <tr>
+            <td align="center" style="padding:22px 34px 30px 34px;">
+              <p style="margin:0 0 6px 0; font-family:'Trebuchet MS', Verdana, sans-serif; font-size:17px; font-weight:bold; color:#1C1C1A;">
+                Less poop in the yard. <span style="color:#1F80FF;">More time with your dog.</span>
+              </p>
+              <p style="margin:10px 0 0 0; font-family:Arial, Helvetica, sans-serif; font-size:13px; line-height:1.7; color:#55606B;">
+                (704)&nbsp;559-9522 &nbsp;·&nbsp; petwastewagon@gmail.com<br>
+                Serving South Charlotte, SouthPark, Ballantyne, Dilworth,<br>Steele Creek, Pineville &amp; Fort Mill, SC<br>
+                <a href="https://petwastewagon.com" style="color:#1F80FF; text-decoration:none; font-weight:bold;">petwastewagon.com</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+
+        <p style="margin:16px 0 0 0; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#8A97A4;">
+          © 2026 Pet Waste Wagon · Charlotte, NC
+        </p>
+
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

@@ -325,7 +325,7 @@
 
           <div class="wizard-step" data-step="4">
             <h3>How can we reach you?</h3>
-            <p class="wizard-sub">We'll text your quote here, usually within a couple hours.</p>
+            <p class="wizard-sub">We'll text your quote to your phone and send a confirmation to your email.</p>
             <div class="row">
               <label for="name">Name</label>
               <input id="name" name="name" type="text" required>
@@ -333,6 +333,10 @@
             <div class="row">
               <label for="phone">Phone</label>
               <input id="phone" name="phone" type="tel" required>
+            </div>
+            <div class="row">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required autocomplete="email">
             </div>
           </div>
 
@@ -345,6 +349,7 @@
               <li><span>Dogs</span><span data-review="dogs"></span></li>
               <li><span>Service</span><span data-review="freq"></span></li>
               <li><span>Contact</span><span data-review="contact"></span></li>
+              <li><span>Email</span><span data-review="email"></span></li>
             </ul>
             <div class="row">
               <label for="notes">Anything we should know? <span style="font-weight:400; color:var(--slate);">(optional)</span></label>
@@ -422,6 +427,8 @@
         document.getElementById('freq').value || '—';
       document.querySelector('[data-review="contact"]').textContent =
         (document.getElementById('name').value || '—') + ' · ' + (document.getElementById('phone').value || '—');
+      document.querySelector('[data-review="email"]').textContent =
+        document.getElementById('email').value || '—';
     }
 
     function show(n){
@@ -444,9 +451,13 @@
         return false;
       }
       if(n === 4){
-        const name = document.getElementById('name'), phone = document.getElementById('phone');
+        const name = document.getElementById('name'), phone = document.getElementById('phone'),
+              email = document.getElementById('email');
         if(!name.value.trim()){ name.focus(); return false; }
         if(!phone.value.trim()){ phone.focus(); return false; }
+        // shape check only — enough to catch typos like a missing @ without
+        // rejecting unusual-but-valid addresses
+        if(!/^\S+@\S+\.\S+$/.test(email.value.trim())){ email.focus(); return false; }
       }
       return true;
     }
