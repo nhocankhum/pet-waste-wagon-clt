@@ -92,23 +92,19 @@ function plainText(d, quote) {
       `Your price: ${quote.price} ${quote.cadence}`,
       '',
       'Ready to start? You can set up service here:',
-      quote.link,
-      '',
-      'No contracts, cancel anytime, and you get a photo of your closed gate after every visit.'
+      quote.link
     );
   } else {
     lines.push(
       '',
       "You've got more than four dogs, so we'll put together a custom quote and " +
-        'email it to you within a couple hours.',
-      '',
-      'No contracts, cancel anytime, and you get a photo of your closed gate after every visit.'
+        'email it to you within a couple hours.'
     );
   }
 
   lines.push(
     '',
-    'Questions? Just reply to this email, or call/text (704) 559-9522.',
+    'Questions? Just reply to this email.',
     '',
     '— Pet Waste Wagon',
     'petwastewagon.com'
