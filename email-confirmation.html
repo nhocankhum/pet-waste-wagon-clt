@@ -20,12 +20,22 @@
   The logo is pulled from the live site over https, so it resolves in any client
   once images are allowed. Alt text carries the brand if they're blocked.
 
-  Placeholders to replace before sending:
+  Placeholders, filled in by netlify/functions/submission-created.js:
     {{NAME}}         first name
     {{NEIGHBORHOOD}} address / neighbourhood they gave
     {{DOGS}}         dog count
     {{SERVICE}}      Weekly / Bi-Weekly / One-Time Deep Clean
-    {{PHONE}}        the phone they gave (where the price gets texted)
+    {{PRICE}}        e.g. $28        (1-4 dogs only)
+    {{CADENCE}}      e.g. every 2 weeks
+    {{PAY_LINK}}     their matching Stripe checkout link
+
+  Two mutually exclusive sections are marked with PRICE_BLOCK / CUSTOM_BLOCK
+  comments. The function keeps one and deletes the other: 1-4 dogs get the price
+  and a pay button, 5+ dogs get the custom-quote wording. Editing this file is
+  safe — just leave those marker comments intact.
+
+  All HTML comments (including this one) are stripped before sending, so these
+  notes never reach a customer.
 -->
 <body style="margin:0; padding:0; background-color:#F1F6FA; -webkit-font-smoothing:antialiased;">
 
@@ -90,22 +100,69 @@
             </td>
           </tr>
 
-          <!-- what happens next -->
+<!--PRICE_BLOCK_START-->
+          <!-- shown when the dog count falls inside posted pricing (1–4) -->
+          <tr>
+            <td align="center" style="padding:24px 34px 0 34px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#C2E9FF; border-radius:10px;">
+                <tr>
+                  <td align="center" style="padding:22px 20px;">
+                    <div style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:13px; font-weight:700; color:#37578D;">
+                      Your price
+                    </div>
+                    <div style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:34px; font-weight:700; color:#1C1C1A; padding:6px 0 2px 0;">
+                      {{PRICE}}
+                    </div>
+                    <div style="font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:15px; color:#37578D;">
+                      {{CADENCE}}
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:24px 34px 0 34px;">
+              <p style="margin:0 0 12px 0; font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:17px; font-weight:700; color:#1C1C1A;">
+                Ready to start?
+              </p>
+              <p style="margin:0; font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:16px; line-height:1.6; color:#4A5560;">
+                Set up your service below and we'll add you to the next route. No contracts, cancel anytime, and you'll get a photo of your closed gate after every visit.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="padding:22px 34px 0 34px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="center" bgcolor="#FF751F" style="border-radius:6px;">
+                    <a href="{{PAY_LINK}}"
+                       style="display:inline-block; padding:14px 34px; font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:16px; font-weight:700; color:#FFFFFF; text-decoration:none; border-radius:6px;">
+                      Start my service
+                    </a>
+                  </td>
+                </tr>
+              </table>
+              <p style="margin:12px 0 0 0; font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:14px; color:#6B7681;">
+                Secure checkout through Stripe. Questions first? Just reply to this email.
+              </p>
+            </td>
+          </tr>
+<!--PRICE_BLOCK_END--><!--CUSTOM_BLOCK_START-->
+          <!-- shown for 5+ dogs, where pricing needs a human -->
           <tr>
             <td style="padding:26px 34px 0 34px;">
               <p style="margin:0 0 12px 0; font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:17px; font-weight:700; color:#1C1C1A;">
                 What happens next
               </p>
               <p style="margin:0 0 10px 0; font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:16px; line-height:1.6; color:#4A5560;">
-                We'll text your price to <strong style="color:#1C1C1A;">{{PHONE}}</strong> within a couple hours. Once it looks good to you, we'll send a payment link and get you on the route.
+                You've got more than four dogs, so we'll put together a custom quote and email it to you within a couple hours. Once it looks good, we'll send a payment link and get you on the route.
               </p>
               <p style="margin:0; font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:16px; line-height:1.6; color:#4A5560;">
                 No contracts, cancel anytime, and you'll get a photo of your closed gate after every visit.
               </p>
             </td>
           </tr>
-
-          <!-- CTA -->
           <tr>
             <td align="center" style="padding:26px 34px 0 34px;">
               <table role="presentation" cellpadding="0" cellspacing="0" border="0">
@@ -123,6 +180,7 @@
               </p>
             </td>
           </tr>
+<!--CUSTOM_BLOCK_END-->
 
           <!-- footer -->
           <tr>
